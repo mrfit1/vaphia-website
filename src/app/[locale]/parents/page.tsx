@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ShieldCheck, Baby, Database, Link2, Mail, LockKeyhole } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -43,7 +44,7 @@ export default async function ParentsPage({ params }: { params: Promise<{ locale
       <section className="shell legal-note">
         <h2>{t.privacyNotice as string}</h2>
         <p>{t.privacyNoticeText as string}</p>
-        <p className="admin-quiet"><a href="/admin">Owner admin</a></p>
+        <p className="admin-quiet"><Link href="/admin">Owner admin</Link></p>
       </section>
     </main>
   );

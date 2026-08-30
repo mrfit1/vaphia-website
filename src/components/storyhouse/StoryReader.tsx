@@ -13,6 +13,11 @@ import type { Locale } from "@/lib/i18n";
 
 export function StoryReader({ book, locale }: { book: StoryBook; locale: Locale }) {
   const age = readAgeBand();
+  return <StorySession key={`${book.id}-${age ?? "all"}`} book={book} locale={locale} />;
+}
+
+function StorySession({ book, locale }: { book: StoryBook; locale: Locale }) {
+  const age = readAgeBand();
   const pages = useMemo(() => {
     if (age === "3-5") return book.pages.slice(0, 4);
     if (age === "7-10") return book.pages;
@@ -31,22 +36,18 @@ export function StoryReader({ book, locale }: { book: StoryBook; locale: Locale 
 
   useEffect(() => () => stopSpeech(), []);
 
-  useEffect(() => {
-    setPage(0);
-    setFinished(false);
-    setSticker(null);
-    setListening(false);
-    stopSpeech();
-  }, [book.id, age]);
-
-  function go(next: number) {
+  const go = useCallback((next: number) => {
     const clipped = Math.min(pages.length - 1, Math.max(0, next));
     setPage(clipped);
-    if (clipped >= pages.length - 1 && !finished) {
-      setFinished(true);
-      if (!sticker) setSticker(celebrateReward({ stars: 7, seed: `story-${book.id}-${Date.now()}` }));
+    if (clipped >= pages.length - 1) {
+      setFinished((wasFinished) => {
+        if (!wasFinished) {
+          setSticker((currentSticker) => currentSticker ?? celebrateReward({ stars: 7, seed: `story-${book.id}-${Date.now()}` }));
+        }
+        return true;
+      });
     }
-  }
+  }, [pages.length, book.id]);
 
   useEffect(() => {
     if (listening || sticker || finished) return;
@@ -55,7 +56,7 @@ export function StoryReader({ book, locale }: { book: StoryBook; locale: Locale 
       else go(page);
     }, hold);
     return () => window.clearTimeout(timer);
-  }, [page, hold, listening, sticker, finished, pages.length]);
+  }, [page, hold, listening, sticker, finished, pages.length, go]);
 
   function listen() {
     if (listening) {

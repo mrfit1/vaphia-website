@@ -103,20 +103,29 @@ function GameFrame({
   );
 }
 
+type RoundProps = {
+  game: GameDef;
+  level: number;
+  win: () => void;
+  sticker: StickerId | null;
+};
+
 function MemoryPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const count = [2, 3, 4][level];
   const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const deck = useMemo(() => {
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <MemoryRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function MemoryRound({ game, level, win, sticker }: RoundProps) {
+  const count = [2, 3, 4][level];
+  const [cards, setCards] = useState(() => {
     const picks = game.items.slice(0, count);
     return shuffle([...picks, ...picks]).map((symbol, id) => ({ id, symbol, matched: false }));
-  }, [game.items, count, round]);
-  const [cards, setCards] = useState(deck);
+  });
   const [open, setOpen] = useState<number[]>([]);
-
-  useEffect(() => {
-    setCards(deck);
-    setOpen([]);
-  }, [deck]);
 
   function choose(index: number) {
     if (open.length === 2 || open.includes(index) || cards[index].matched || sticker) return;
@@ -138,24 +147,22 @@ function MemoryPlay({ game, locale, level }: { game: GameDef; locale: Locale; le
   }
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
-      <div className={`memory-grid big-targets memory-${count * 2}`}>
-        {cards.map((card, index) => {
-          const visible = open.includes(index) || card.matched;
-          return (
-            <button
-              key={`${round}-${card.id}`}
-              className={`memory-card illustrated ${visible ? "open" : "closed"} ${card.matched ? "matched" : ""}`}
-              onClick={() => choose(index)}
-              aria-label={visible ? card.symbol : "card"}
-              type="button"
-            >
-              {visible ? <Mark id={card.symbol} /> : <Mark id="sparkle" />}
-            </button>
-          );
-        })}
-      </div>
-    </GameFrame>
+    <div className={`memory-grid big-targets memory-${count * 2}`}>
+      {cards.map((card, index) => {
+        const visible = open.includes(index) || card.matched;
+        return (
+          <button
+            key={card.id}
+            className={`memory-card illustrated ${visible ? "open" : "closed"} ${card.matched ? "matched" : ""}`}
+            onClick={() => choose(index)}
+            aria-label={visible ? card.symbol : "card"}
+            type="button"
+          >
+            {visible ? <Mark id={card.symbol} /> : <Mark id="sparkle" />}
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
@@ -168,37 +175,40 @@ function TapPlay({ game, locale, level }: { game: GameDef; locale: Locale; level
   return <CatchMove game={game} locale={locale} level={level} />;
 }
 
+function makeFloaters(n: number, nextId: { current: number }, make: (id: number) => Omit<Floater, "id">): Floater[] {
+  return Array.from({ length: n }, () => {
+    const id = nextId.current;
+    nextId.current += 1;
+    return { id, ...make(id) };
+  });
+}
+
 function BalloonPop({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <BalloonRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function BalloonRound({ game, level, win, sticker }: RoundProps) {
   const goal = [6, 8, 12][level];
   const count = [4, 5, 6][level];
   const speed = [0.18, 0.28, 0.42][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
   const [score, setScore] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [balloons, setBalloons] = useState<Floater[]>([]);
   const nextId = useRef(1);
 
-  function spawn(n: number): Floater[] {
-    return Array.from({ length: n }, () => {
-      const id = nextId.current;
-      nextId.current += 1;
-      return {
-        id,
-        x: 8 + Math.random() * 70,
-        y: 70 + Math.random() * 28,
-        vx: (Math.random() - 0.5) * 0.12,
-        vy: -(speed + Math.random() * 0.12),
-        hue: Math.floor(Math.random() * 5),
-        popped: false
-      };
-    });
-  }
-
-  useEffect(() => {
-    setScore(0);
-    setPlaying(false);
-    setBalloons([]);
-  }, [round]);
+  const spawn = useCallback((n: number) => makeFloaters(n, nextId, () => ({
+    x: 8 + Math.random() * 70,
+    y: 70 + Math.random() * 28,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: -(speed + Math.random() * 0.12),
+    hue: Math.floor(Math.random() * 5),
+    popped: false
+  })), [speed]);
 
   useEffect(() => {
     if (!playing) return;
@@ -217,10 +227,11 @@ function BalloonPop({ game, locale, level }: { game: GameDef; locale: Locale; le
       });
     }, 40);
     return () => window.clearInterval(tick);
-  }, [playing, count, speed, round]);
+  }, [playing, count, spawn]);
+
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <>
       <div className="tap-arena balloon-sky">
         {playing ? (
           balloons.map((b) => (
@@ -253,27 +264,27 @@ function BalloonPop({ game, locale, level }: { game: GameDef; locale: Locale; le
         )}
       </div>
       <div className="moves">{score} / {goal}</div>
-    </GameFrame>
+    </>
   );
 }
 
 function CatchMove({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <CatchRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function CatchRound({ game, level, win, sticker }: RoundProps) {
   const seconds = [20, 16, 14][level];
   const goal = [6, 10, 14][level];
   const icon = game.items[0] || game.icon;
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
   const [score, setScore] = useState(0);
   const [time, setTime] = useState(seconds);
   const [playing, setPlaying] = useState(false);
-  const pos = useRef({ x: 40, y: 40, vx: 0.45, vy: 0.32 });
-  const [, force] = useState(0);
-
-  useEffect(() => {
-    setScore(0);
-    setTime(seconds);
-    setPlaying(false);
-    pos.current = { x: 40, y: 40, vx: 0.45 + level * 0.12, vy: 0.32 + level * 0.1 };
-  }, [round, seconds, level]);
+  const [pos, setPos] = useState(() => ({ x: 40, y: 40, vx: 0.45 + level * 0.12, vy: 0.32 + level * 0.1 }));
 
   useEffect(() => {
     if (!playing) return;
@@ -287,42 +298,40 @@ function CatchMove({ game, locale, level }: { game: GameDef; locale: Locale; lev
       });
     }, 1000);
     return () => window.clearInterval(timer);
-  }, [playing, round]);
+  }, [playing]);
 
   useEffect(() => {
     if (!playing) return;
     const tick = window.setInterval(() => {
-      const p = pos.current;
-      let { x, y, vx, vy } = p;
-      x += vx;
-      y += vy;
-      if (x < 6 || x > 80) vx *= -1;
-      if (y < 8 || y > 72) vy *= -1;
-      x = clamp(x, 6, 80);
-      y = clamp(y, 8, 72);
-      pos.current = { x, y, vx, vy };
-      force((n) => n + 1);
+      setPos((p) => {
+        let { x, y, vx, vy } = p;
+        x += vx;
+        y += vy;
+        if (x < 6 || x > 80) vx *= -1;
+        if (y < 8 || y > 72) vy *= -1;
+        return { x: clamp(x, 6, 80), y: clamp(y, 8, 72), vx, vy };
+      });
     }, 32);
     return () => window.clearInterval(tick);
-  }, [playing, round]);
+  }, [playing]);
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <>
       <div className="tap-arena catch-sky">
         {playing ? (
           <button
             className="tap-floater catch-target"
-            style={{ left: `${pos.current.x}%`, top: `${pos.current.y}%` }}
+            style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
             type="button"
             onClick={() => {
               if (sticker) return;
               playTap();
-              pos.current = {
+              setPos({
                 x: 8 + Math.random() * 70,
                 y: 12 + Math.random() * 56,
                 vx: (Math.random() > 0.5 ? 1 : -1) * (0.4 + level * 0.15),
                 vy: (Math.random() > 0.5 ? 1 : -1) * (0.3 + level * 0.12)
-              };
+              });
               setScore((value) => {
                 const next = value + 1;
                 if (next >= goal) {
@@ -342,44 +351,35 @@ function CatchMove({ game, locale, level }: { game: GameDef; locale: Locale; lev
         )}
       </div>
       <div className="moves">{time}s · {score} / {goal}</div>
-    </GameFrame>
+    </>
   );
 }
 
 function BubblePop({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <BubbleRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function BubbleRound({ game, level, win, sticker }: RoundProps) {
   const goal = [7, 10, 14][level];
   const count = [3, 4, 5][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
   const [score, setScore] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [bubbles, setBubbles] = useState<Floater[]>([]);
   const nextId = useRef(1);
 
-  function spawn(n: number): Floater[] {
-    return Array.from({ length: n }, () => {
-      const id = nextId.current;
-      nextId.current += 1;
-      return {
-        id,
-        x: 8 + Math.random() * 70,
-        y: 20 + Math.random() * 50,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.4,
-        hue: 0,
-        popped: false
-      };
-    });
-  }
-
-  useEffect(() => {
-    setScore(0);
-    setPlaying(false);
-    setBalloonsSafe();
-  }, [round]);
-
-  function setBalloonsSafe() {
-    setBubbles([]);
-  }
+  const spawn = useCallback((n: number) => makeFloaters(n, nextId, () => ({
+    x: 8 + Math.random() * 70,
+    y: 20 + Math.random() * 50,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.4,
+    hue: 0,
+    popped: false
+  })), []);
 
   useEffect(() => {
     if (!playing) return;
@@ -399,10 +399,11 @@ function BubblePop({ game, locale, level }: { game: GameDef; locale: Locale; lev
       });
     }, 40);
     return () => window.clearInterval(tick);
-  }, [playing, count, round]);
+  }, [playing, count, spawn]);
+
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <>
       <div className="tap-arena bubble-sky">
         {playing ? (
           bubbles.map((b) => (
@@ -435,20 +436,24 @@ function BubblePop({ game, locale, level }: { game: GameDef; locale: Locale; lev
         )}
       </div>
       <div className="moves">{score} / {goal}</div>
-    </GameFrame>
+    </>
   );
 }
 
 function PuzzlePlay({ game, locale, level, imageUrl }: { game: GameDef; locale: Locale; level: number; imageUrl: string }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <PuzzleRound key={round} game={game} level={level} win={win} sticker={sticker} imageUrl={imageUrl} />
+    </GameFrame>
+  );
+}
+
+function PuzzleRound({ game, level, win, sticker, imageUrl }: RoundProps & { imageUrl: string }) {
   const size = [2, 3, 4][level];
   const last = size * size - 1;
   const solved = useMemo(() => Array.from({ length: size * size }, (_, i) => i), [size]);
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
   const [tiles, setTiles] = useState(() => scramble(solved, size));
-
-  useEffect(() => {
-    setTiles(scramble(solved, size));
-  }, [round, solved, size]);
 
   function move(index: number) {
     const empty = tiles.indexOf(last);
@@ -465,27 +470,25 @@ function PuzzlePlay({ game, locale, level, imageUrl }: { game: GameDef; locale: 
   }
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
-      <div className="picture-puzzle" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
-        {tiles.map((tile, index) =>
-          tile === last ? (
-            <div key={`${round}-${index}`} className="puzzle-tile empty" />
-          ) : (
-            <button
-              key={`${round}-${index}`}
-              className="puzzle-tile"
-              type="button"
-              onClick={() => move(index)}
-              style={{
-                backgroundImage: `url(${imageUrl})`,
-                backgroundSize: `${size * 100}% ${size * 100}%`,
-                backgroundPosition: `${(tile % size) * (100 / (size - 1))}% ${Math.floor(tile / size) * (100 / (size - 1))}%`
-              }}
-            />
-          )
-        )}
-      </div>
-    </GameFrame>
+    <div className="picture-puzzle" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
+      {tiles.map((tile, index) =>
+        tile === last ? (
+          <div key={index} className="puzzle-tile empty" />
+        ) : (
+          <button
+            key={index}
+            className="puzzle-tile"
+            type="button"
+            onClick={() => move(index)}
+            style={{
+              backgroundImage: `url(${imageUrl})`,
+              backgroundSize: `${size * 100}% ${size * 100}%`,
+              backgroundPosition: `${(tile % size) * (100 / (size - 1))}% ${Math.floor(tile / size) * (100 / (size - 1))}%`
+            }}
+          />
+        )
+      )}
+    </div>
   );
 }
 
@@ -509,19 +512,21 @@ function scramble(solved: number[], size: number) {
 }
 
 function SequencePlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <SequenceRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function SequenceRound({ game, level, win, sticker }: RoundProps) {
   const marks = game.items.slice(0, 4);
   const length = [3, 4, 5][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
   const [sequence, setSequence] = useState<number[]>(() => Array.from({ length }, (_, index) => index % marks.length));
   const [step, setStep] = useState(0);
   const [glow, setGlow] = useState<number | null>(null);
   const [showing, setShowing] = useState(false);
-
-  useEffect(() => {
-    setStep(0);
-    setGlow(null);
-    setShowing(false);
-  }, [round]);
 
   function show() {
     const nextSeq = Array.from({ length }, () => Math.floor(Math.random() * marks.length));
@@ -536,7 +541,7 @@ function SequencePlay({ game, locale, level }: { game: GameDef; locale: Locale; 
   }
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <>
       <div className="choice-grid">
         {marks.map((mark, index) => (
           <button
@@ -560,24 +565,26 @@ function SequencePlay({ game, locale, level }: { game: GameDef; locale: Locale; 
         ))}
       </div>
       <button className="giant-pictorial-button pressable" type="button" onClick={show}>▶</button>
-    </GameFrame>
+    </>
   );
 }
 
 function SortPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const bins = game.items.slice(0, [2, 3, 3][level]);
   const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const pile = useMemo(() => shuffle(Array.from({ length: bins.length * 3 }, (_, i) => bins[i % bins.length])), [bins, round]);
-  const [left, setLeft] = useState(pile);
-  const [bin, setBin] = useState<MarkId | null>(null);
-
-  useEffect(() => {
-    setLeft(pile);
-    setBin(null);
-  }, [pile]);
-
   return (
     <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <SortRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function SortRound({ game, level, win, sticker }: RoundProps) {
+  const bins = game.items.slice(0, [2, 3, 3][level]);
+  const [left, setLeft] = useState(() => shuffle(Array.from({ length: bins.length * 3 }, (_, i) => bins[i % bins.length])));
+  const [bin, setBin] = useState<MarkId | null>(null);
+
+  return (
+    <>
       <div className="choice-grid">
         {bins.map((item) => (
           <button key={item} className={`choice-mark illustrated ${bin === item ? "glow" : ""}`} type="button" onClick={() => setBin(item)}>
@@ -588,7 +595,7 @@ function SortPlay({ game, locale, level }: { game: GameDef; locale: Locale; leve
       <div className="choice-grid">
         {left.map((item, index) => (
           <button
-            key={`${round}-${item}-${index}`}
+            key={`${item}-${index}`}
             className="choice-mark illustrated"
             type="button"
             onClick={() => {
@@ -603,14 +610,14 @@ function SortPlay({ game, locale, level }: { game: GameDef; locale: Locale; leve
           </button>
         ))}
       </div>
-    </GameFrame>
+    </>
   );
 }
 
 function CountPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const mark = game.items[0] || "star";
   const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const target = useMemo(() => [2, 4, 6][level] + 1 + ((round - 1) % 3), [level, round]);
+  const mark = game.items[0] || "star";
+  const target = [2, 4, 6][level] + 1 + ((round - 1) % 3);
   const options = [target - 1, target, target + 1].filter((n) => n > 0);
 
   return (
@@ -638,22 +645,30 @@ function CountPlay({ game, locale, level }: { game: GameDef; locale: Locale; lev
 }
 
 function FindPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <FindRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function FindRound({ game, level, win, sticker }: RoundProps) {
   const decoys: MarkId[] = ["balloon", "cupcake", "moon", "bunny", "sun", "gift"];
   const target = game.items[0] || game.icon;
   const count = [6, 9, 12][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const tiles = useMemo(() => {
+  const [tiles] = useState(() => {
     const items = Array.from({ length: count }, (_, i) => (i === 2 ? target : decoys[i % decoys.length]));
     return shuffle(items);
-  }, [count, target, round]);
+  });
 
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <>
       <p className="pictorial-goal"><Mark id={target} /></p>
       <div className="choice-grid">
         {tiles.map((item, index) => (
           <button
-            key={`${round}-${item}-${index}`}
+            key={`${item}-${index}`}
             className="choice-mark illustrated"
             type="button"
             onClick={() => {
@@ -665,109 +680,121 @@ function FindPlay({ game, locale, level }: { game: GameDef; locale: Locale; leve
           </button>
         ))}
       </div>
-    </GameFrame>
+    </>
   );
 }
 
 function MatchPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const marks = game.items.slice(0, [3, 4, 4][level]);
   const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const left = useMemo(() => shuffle(marks), [marks, round]);
-  const right = useMemo(() => shuffle(marks), [marks, round]);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <MatchRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function MatchRound({ game, level, win, sticker }: RoundProps) {
+  const marks = game.items.slice(0, [3, 4, 4][level]);
+  const [left] = useState(() => shuffle(marks));
+  const [right] = useState(() => shuffle(marks));
   const [picked, setPicked] = useState<string | null>(null);
   const [done, setDone] = useState<string[]>([]);
 
-  useEffect(() => {
-    setPicked(null);
-    setDone([]);
-  }, [round]);
-
   return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
-      <div className="match-columns">
-        <div className="choice-grid">
-          {left.map((item) => (
-            <button key={`l-${item}`} className={`choice-mark illustrated ${picked === item ? "glow" : ""}`} disabled={done.includes(item)} type="button" onClick={() => { playTap(); setPicked(item); }}>
-              <Mark id={item} />
-            </button>
-          ))}
-        </div>
-        <div className="choice-grid">
-          {right.map((item) => (
-            <button
-              key={`r-${item}`}
-              className="choice-mark illustrated"
-              disabled={done.includes(item)}
-              type="button"
-              onClick={() => {
-                if (picked !== item) return;
-                playSparkle();
-                const next = [...done, item];
-                setDone(next);
-                setPicked(null);
-                if (next.length === marks.length && !sticker) win();
-              }}
-            >
-              <Mark id={item} />
-            </button>
-          ))}
-        </div>
-      </div>
-    </GameFrame>
-  );
-}
-
-function PathPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const length = [4, 5, 6][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const [step, setStep] = useState(0);
-  useEffect(() => setStep(0), [round]);
-  return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
-      <div className="path-row">
-        {Array.from({ length }).map((_, index) => (
-          <button
-            key={`${round}-${index}`}
-            className={`choice-mark illustrated ${index < step ? "glow" : ""}`}
-            type="button"
-            onClick={() => {
-              if (index !== step) return;
-              playTap();
-              if (index + 1 >= length && !sticker) win();
-              else setStep(index + 1);
-            }}
-          >
-            <Mark id={game.icon} />
-          </button>
-        ))}
-      </div>
-    </GameFrame>
-  );
-}
-
-function OddPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const same = game.items[0] || "star";
-  const odd = game.items[1] || "heart";
-  const count = [4, 6, 8][level];
-  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const tiles = useMemo(() => shuffle([odd, ...Array.from({ length: count - 1 }, () => same)]), [count, odd, same, round]);
-  return (
-    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+    <div className="match-columns">
       <div className="choice-grid">
-        {tiles.map((item, index) => (
-          <button key={`${round}-${item}-${index}`} className="choice-mark illustrated" type="button" onClick={() => { playTap(); if (item === odd && !sticker) win(); }}>
+        {left.map((item) => (
+          <button key={`l-${item}`} className={`choice-mark illustrated ${picked === item ? "glow" : ""}`} disabled={done.includes(item)} type="button" onClick={() => { playTap(); setPicked(item); }}>
             <Mark id={item} />
           </button>
         ))}
       </div>
+      <div className="choice-grid">
+        {right.map((item) => (
+          <button
+            key={`r-${item}`}
+            className="choice-mark illustrated"
+            disabled={done.includes(item)}
+            type="button"
+            onClick={() => {
+              if (picked !== item) return;
+              playSparkle();
+              const next = [...done, item];
+              setDone(next);
+              setPicked(null);
+              if (next.length === marks.length && !sticker) win();
+            }}
+          >
+            <Mark id={item} />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PathPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <PathRound key={round} game={game} level={level} win={win} sticker={sticker} />
     </GameFrame>
   );
 }
 
-function PatternPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
-  const marks = game.items.slice(0, 3);
+function PathRound({ game, level, win, sticker }: RoundProps) {
+  const length = [4, 5, 6][level];
+  const [step, setStep] = useState(0);
+  return (
+    <div className="path-row">
+      {Array.from({ length }).map((_, index) => (
+        <button
+          key={index}
+          className={`choice-mark illustrated ${index < step ? "glow" : ""}`}
+          type="button"
+          onClick={() => {
+            if (index !== step) return;
+            playTap();
+            if (index + 1 >= length && !sticker) win();
+            else setStep(index + 1);
+          }}
+        >
+          <Mark id={game.icon} />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function OddPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
   const { win, banner, nextControl, round, sticker } = useReward(game, locale);
-  const pattern = useMemo(() => [marks[0], marks[1], marks[0], marks[1], marks[0]], [marks, round]);
+  return (
+    <GameFrame game={game} locale={locale} banner={banner} nextControl={nextControl}>
+      <OddRound key={round} game={game} level={level} win={win} sticker={sticker} />
+    </GameFrame>
+  );
+}
+
+function OddRound({ game, level, win, sticker }: RoundProps) {
+  const same = game.items[0] || "star";
+  const odd = game.items[1] || "heart";
+  const count = [4, 6, 8][level];
+  const [tiles] = useState(() => shuffle([odd, ...Array.from({ length: count - 1 }, () => same)]));
+  return (
+    <div className="choice-grid">
+      {tiles.map((item, index) => (
+        <button key={`${item}-${index}`} className="choice-mark illustrated" type="button" onClick={() => { playTap(); if (item === odd && !sticker) win(); }}>
+          <Mark id={item} />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function PatternPlay({ game, locale, level }: { game: GameDef; locale: Locale; level: number }) {
+  const { win, banner, nextControl, round, sticker } = useReward(game, locale);
+  const marks = game.items.slice(0, 3);
+  const pattern = [marks[0], marks[1], marks[0], marks[1], marks[0]];
   const missing = pattern[pattern.length - 1];
   const options = level > 0 ? marks : [missing, marks[1] || marks[0]];
   return (
