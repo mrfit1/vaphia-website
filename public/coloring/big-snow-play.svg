@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Snow Play">
+  <title>Snow Play — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <circle cx="300" cy="340" r="80"/><circle cx="300" cy="230" r="58"/><circle cx="300" cy="150" r="40"/><rect x="104.0" y="335.5" width="72.0" height="54.0" rx="8"/><path d="M95.0 335.5 L140 290.5 L185.0 335.5 Z"/><rect x="131.9" y="353.5" width="16.2" height="36.0"/><circle cx="122.0" cy="349.0" r="7.2"/><circle cx="158.0" cy="349.0" r="7.2"/><rect x="461.2" y="331.0" width="17.6" height="44.0"/><circle cx="470" cy="309.0" r="38.5"/><circle cx="448.0" cy="320" r="22.0"/><circle cx="493.1" cy="320" r="20.900000000000002"/><polygon points="160.0,104.0 163.9,114.6 175.2,115.1 166.4,122.1 169.4,132.9 160.0,126.7 150.6,132.9 153.6,122.1 144.8,115.1 156.1,114.6"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Butterfly Garden">
+  <title>Butterfly Garden — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(0 180 320)"/><ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(60 180 320)"/><ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(120 180 320)"/><ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(180 180 320)"/><ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(240 180 320)"/><ellipse cx="180" cy="264.0" rx="22.400000000000002" ry="41.6" transform="rotate(300 180 320)"/><circle cx="180" cy="320" r="28.8"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(0 400 300)"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(60 400 300)"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(120 400 300)"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(180 400 300)"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(240 400 300)"/><ellipse cx="400" cy="237.0" rx="25.2" ry="46.800000000000004" transform="rotate(300 400 300)"/><circle cx="400" cy="300" r="32.4"/><ellipse cx="300" cy="180" rx="40" ry="70"/><ellipse cx="380" cy="180" rx="40" ry="70"/><circle cx="340" cy="180" r="10"/>
+  </g>
+</svg>

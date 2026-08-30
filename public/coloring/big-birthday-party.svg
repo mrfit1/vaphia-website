@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Birthday Party">
+  <title>Birthday Party — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <ellipse cx="140" cy="170" rx="80" ry="100"/><path d="M140 270 l-10 18 h20 z"/><path d="M140 288 q-12 40 0 80" fill="none"/><ellipse cx="200" cy="150" rx="80" ry="100"/><path d="M200 250 l-10 18 h20 z"/><path d="M200 268 q-12 40 0 80" fill="none"/><ellipse cx="460" cy="170" rx="80" ry="100"/><path d="M460 270 l-10 18 h20 z"/><path d="M460 288 q-12 40 0 80" fill="none"/><path d="M230 300 h140 l-20 90 h-100 z"/><ellipse cx="300" cy="300" rx="80" ry="40"/><circle cx="276" cy="282" r="18"/><circle cx="318" cy="272" r="20"/><circle cx="300" cy="292" r="16"/><circle cx="300" cy="242" r="14"/><rect x="111.0" y="346.0" width="98.0" height="77.0" rx="10"/><rect x="104.0" y="325.0" width="112.0" height="25.2" rx="8"/><rect x="153.0" y="325.0" width="14.0" height="98.0"/><path d="M160 325.0 q-21.0 -28.0 -35.0 -8"/><path d="M160 325.0 q21.0 -28.0 35.0 -8"/><rect x="391.0" y="346.0" width="98.0" height="77.0" rx="10"/><rect x="384.0" y="325.0" width="112.0" height="25.2" rx="8"/><rect x="433.0" y="325.0" width="14.0" height="98.0"/><path d="M440 325.0 q-21.0 -28.0 -35.0 -8"/><path d="M440 325.0 q21.0 -28.0 35.0 -8"/><polygon points="300.0,124.0 306.4,141.2 324.7,142.0 310.4,153.4 315.3,171.0 300.0,160.9 284.7,171.0 289.6,153.4 275.3,142.0 293.6,141.2"/>
+  </g>
+</svg>

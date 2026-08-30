@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Boat Pond">
+  <title>Boat Pond — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <path d="M190 300 h220 l-30 50 h-160 z"/><path d="M300 300 L300 190 L380 300"/><ellipse cx="160" cy="380" rx="45.0" ry="25.0"/><path d="M115.0 380 l-25.0 -40 v80 z"/><circle cx="180.0" cy="375.0" r="8"/><circle cx="120" cy="130" r="36"/><line x1="168.0" y1="130.0" x2="204.0" y2="130.0"/><line x1="158.8" y1="158.2" x2="188.0" y2="179.4"/><line x1="134.8" y1="175.7" x2="146.0" y2="209.9"/><line x1="105.2" y1="175.7" x2="94.0" y2="209.9"/><line x1="81.2" y1="158.2" x2="52.0" y2="179.4"/><line x1="72.0" y1="130.0" x2="36.0" y2="130.0"/><line x1="81.2" y1="101.8" x2="52.0" y2="80.6"/><line x1="105.2" y1="84.3" x2="94.0" y2="50.1"/><line x1="134.8" y1="84.3" x2="146.0" y2="50.1"/><line x1="158.8" y1="101.8" x2="188.0" y2="80.6"/><ellipse cx="385.0" cy="140" rx="42.0" ry="28.0"/><ellipse cx="448.0" cy="144.2" rx="49.0" ry="32.199999999999996"/><ellipse cx="420" cy="120.4" rx="35.0" ry="25.2"/>
+  </g>
+</svg>

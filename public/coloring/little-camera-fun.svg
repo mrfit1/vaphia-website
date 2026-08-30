@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Camera Fun">
+  <title>Camera Fun — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="180" y="200" width="240" height="160" rx="24"/><circle cx="300" cy="280" r="50"/><circle cx="300" cy="280" r="24"/><rect x="220" y="170" width="70" height="36" rx="8"/><polygon points="470.0,132.0 476.9,150.5 496.6,151.3 481.2,163.6 486.5,182.7 470.0,171.8 453.5,182.7 458.8,163.6 443.4,151.3 463.1,150.5"/>
+  </g>
+</svg>

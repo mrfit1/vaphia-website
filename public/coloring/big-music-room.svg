@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Music Room">
+  <title>Music Room — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <rect x="120" y="220" width="220" height="140"/><rect x="140" y="240" width="180" height="20"/><rect x="140" y="280" width="180" height="20"/><circle cx="430" cy="300" r="60"/><rect x="488" y="180" width="16" height="130"/><circle cx="200" cy="160" r="92"/><path d="M110 150 q40 -110 90 -110 q50 0 90 110"/><circle cx="172" cy="152" r="8"/><circle cx="228" cy="152" r="8"/><path d="M178 188 q22 18 44 0" fill="none"/>
+  </g>
+</svg>

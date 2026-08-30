@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Play Room">
+  <title>Play Room — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="244.0" y="213.0" width="112.0" height="84.0" rx="8"/><path d="M230.0 213.0 L300 143.0 L370.0 213.0 Z"/><rect x="287.4" y="241.0" width="25.2" height="56.0"/><circle cx="272.0" cy="234.0" r="11.2"/><circle cx="328.0" cy="234.0" r="11.2"/><ellipse cx="140.4" cy="297.0" rx="12.6" ry="35.0"/><ellipse cx="179.6" cy="297.0" rx="12.6" ry="35.0"/><circle cx="160" cy="360" r="49.0"/><circle cx="144.6" cy="355.8" r="7"/><circle cx="175.4" cy="355.8" r="7"/><ellipse cx="160" cy="372.6" rx="8" ry="6"/><rect x="401.0" y="346.0" width="98.0" height="77.0" rx="10"/><rect x="394.0" y="325.0" width="112.0" height="25.2" rx="8"/><rect x="443.0" y="325.0" width="14.0" height="98.0"/><path d="M450 325.0 q-21.0 -28.0 -35.0 -8"/><path d="M450 325.0 q21.0 -28.0 35.0 -8"/><polygon points="300.0,372.0 306.9,390.5 326.6,391.3 311.2,403.6 316.5,422.7 300.0,411.8 283.5,422.7 288.8,403.6 273.4,391.3 293.1,390.5"/>
+  </g>
+</svg>

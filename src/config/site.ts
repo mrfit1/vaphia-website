@@ -1,4 +1,5 @@
 import type { GlobalSettings } from "@/lib/content-types";
+import { allGameIds } from "@/lib/games/catalog";
 
 export const siteConfig = {
   name: "Vaphia",
@@ -16,5 +17,5 @@ export const defaultGlobalSettings: GlobalSettings = {
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/vaphiaa/",
   googleVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
   bingVerification: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || "",
-  gamesEnabled: ["memory", "tap", "puzzle"]
+  gamesEnabled: allGameIds
 };

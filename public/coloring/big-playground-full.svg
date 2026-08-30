@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Playground">
+  <title>Playground — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <rect x="160" y="140" width="16" height="260"/><rect x="420" y="140" width="16" height="260"/><rect x="160" y="140" width="276" height="16"/><rect x="230" y="320" width="140" height="24" rx="8"/><line x1="250" y1="156" x2="250" y2="320"/><line x1="350" y1="156" x2="350" y2="320"/><circle cx="480" cy="120" r="36"/><line x1="528.0" y1="120.0" x2="564.0" y2="120.0"/><line x1="518.8" y1="148.2" x2="548.0" y2="169.4"/><line x1="494.8" y1="165.7" x2="506.0" y2="199.9"/><line x1="465.2" y1="165.7" x2="454.0" y2="199.9"/><line x1="441.2" y1="148.2" x2="412.0" y2="169.4"/><line x1="432.0" y1="120.0" x2="396.0" y2="120.0"/><line x1="441.2" y1="91.8" x2="412.0" y2="70.6"/><line x1="465.2" y1="74.3" x2="454.0" y2="40.1"/><line x1="494.8" y1="74.3" x2="506.0" y2="40.1"/><line x1="518.8" y1="91.8" x2="548.0" y2="70.6"/><rect x="92.0" y="376.5" width="56.0" height="42.0" rx="8"/><path d="M85.0 376.5 L120 341.5 L155.0 376.5 Z"/><rect x="113.7" y="390.5" width="12.6" height="28.0"/><circle cx="106.0" cy="387.0" r="5.6"/><circle cx="134.0" cy="387.0" r="5.6"/><rect x="492.8" y="349.0" width="14.4" height="36.0"/><circle cx="500" cy="331.0" r="31.5"/><circle cx="482.0" cy="340" r="18.0"/><circle cx="518.9" cy="340" r="17.1"/><polygon points="300.0,412.0 304.4,423.9 317.1,424.4 307.2,432.3 310.6,444.6 300.0,437.6 289.4,444.6 292.8,432.3 282.9,424.4 295.6,423.9"/>
+  </g>
+</svg>

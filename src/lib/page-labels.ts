@@ -6,6 +6,7 @@ export const pageLabelMap: Record<PageKey, string> = {
   play: "Play",
   create: "Create",
   explore: "Explore",
+  storyhouse: "Storyhouse",
   parents: "Parents & Privacy",
   about: "About"
 };

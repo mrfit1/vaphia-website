@@ -21,11 +21,19 @@ export default async function ParentsPage({ params }: { params: Promise<{ locale
   const content = await getPageContent(locale, "parents");
   const t = uiCopy[locale];
   const icons = [Baby, Database, Link2, LockKeyhole, ShieldCheck, Mail];
+
+  const pride: Record<Locale, string> = {
+    en: "Vania and Sophia made a world you can be proud to share: no ads, no tracking, optional picture-and-PIN kid cards created by a grown-up, and a sticker book that fills with cheers.",
+    fa: "وانیا و سوفیا دنیایی ساختند که می‌توانید با افتخار به اشتراک بگذارید: بدون تبلیغ، بدون ردیابی، کارت کودک اختیاری با شکل و رمز که والد می‌سازد، و دفتر استیکری که با تشویق پر می‌شود.",
+    fr: "Vania et Sophia ont créé un monde dont on peut être fier : pas de pubs, pas de suivi, une carte enfant optionnelle créée par un adulte, et un carnet de stickers qui se remplit avec les bravos.",
+    es: "Vania y Sophia hicieron un mundo para compartir con orgullo: sin anuncios, sin rastreo, una tarjeta infantil opcional creada por un adulto, y un libro de stickers que se llena con aplausos."
+  };
   const notes = (t.privacyCards as string[]).map((title, index) => ({ Icon: icons[index], title, text: (t.privacyDescriptions as string[])[index] }));
 
   return (
     <main>
       <PageHero eyebrow={content.eyebrow} title={content.title} description={content.description} />
+      <section className="shell pride-block"><p>{pride[locale]}</p></section>
       <section className="shell privacy-grid">
         {notes.map(({ Icon, title, text }) => (
           <article className="privacy-card" key={title}><span><Icon /></span><h2>{title}</h2><p>{text}</p></article>

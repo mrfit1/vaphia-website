@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type SVGProps } from "react";
+import { afterPaint } from "@/lib/client-state";
 import { X } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { uiCopy } from "@/lib/ui-copy";
@@ -45,12 +46,14 @@ export function GrownUpSocialLink({ href, name, locale, compact = false }: { hre
   const t = uiCopy[locale];
 
   useEffect(() => {
-    try {
-      const prefs = JSON.parse(localStorage.getItem("vaphia-parent-preferences") || "{}");
-      setDirect(Boolean(prefs.externalLinks));
-    } catch {
-      setDirect(false);
-    }
+    return afterPaint(() => {
+      try {
+        const prefs = JSON.parse(localStorage.getItem("vaphia-parent-preferences") || "{}");
+        setDirect(Boolean(prefs.externalLinks));
+      } catch {
+        setDirect(false);
+      }
+    });
   }, []);
 
   function click() {

@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { afterPaint } from "@/lib/client-state";
 import { ExternalLink, LockKeyhole, RotateCcw, ShieldCheck, Sparkles, Volume2 } from "lucide-react";
 import { resetVaphiaStars } from "@/components/games/StarWallet";
+import { resetStickerBook } from "@/lib/stickers";
 import type { Locale } from "@/lib/i18n";
 import { uiCopy } from "@/lib/ui-copy";
 
@@ -14,7 +16,7 @@ type Prefs = {
 
 const KEY = "vaphia-parent-preferences";
 const UNLOCK_KEY = "vaphia-parent-unlocked";
-const defaults: Prefs = { sound: false, motion: true, externalLinks: false };
+const defaults: Prefs = { sound: true, motion: true, externalLinks: false };
 
 export function ParentControls({ locale }: { locale: Locale }) {
   const t = uiCopy[locale];
@@ -25,13 +27,15 @@ export function ParentControls({ locale }: { locale: Locale }) {
   const [unlockError, setUnlockError] = useState(false);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(KEY);
-      if (stored) setPrefs({ ...defaults, ...JSON.parse(stored) });
-      setUnlocked(sessionStorage.getItem(UNLOCK_KEY) === "yes");
-    } catch {
-      setPrefs(defaults);
-    }
+    return afterPaint(() => {
+      try {
+        const stored = localStorage.getItem(KEY);
+        if (stored) setPrefs({ ...defaults, ...JSON.parse(stored) });
+        setUnlocked(sessionStorage.getItem(UNLOCK_KEY) === "yes");
+      } catch {
+        setPrefs(defaults);
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -104,7 +108,7 @@ export function ParentControls({ locale }: { locale: Locale }) {
           </div>
         ))}
       </div>
-      <button className="button secondary-button" onClick={() => { resetVaphiaStars(); setSaved(true); window.setTimeout(() => setSaved(false), 1500); }} type="button">
+      <button className="button secondary-button" onClick={() => { resetVaphiaStars(); resetStickerBook(); setSaved(true); window.setTimeout(() => setSaved(false), 1500); }} type="button">
         <RotateCcw size={18} /> {t.resetStars as string}
       </button>
       {saved && <p className="saved-note">{t.savedDevice as string}</p>}

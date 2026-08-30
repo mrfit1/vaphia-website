@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="A Gift">
+  <title>A Gift — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
+    <rect x="209.0" y="234.0" width="182.0" height="143.0" rx="10"/><rect x="196.0" y="195.0" width="208.0" height="46.800000000000004" rx="8"/><rect x="287.0" y="195.0" width="26.0" height="182.0"/><path d="M300 195.0 q-39.0 -52.0 -65.0 -8"/><path d="M300 195.0 q39.0 -52.0 65.0 -8"/>
+  </g>
+</svg>

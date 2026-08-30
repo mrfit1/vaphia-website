@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Sisters On Stage">
+  <title>Sisters On Stage — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <rect x="80" y="340" width="440" height="70" rx="10"/><rect x="120" y="150" width="360" height="190" rx="16"/><circle cx="240" cy="250" r="92"/><path d="M150 240 q40 -110 90 -110 q50 0 90 110"/><circle cx="212" cy="242" r="8"/><circle cx="268" cy="242" r="8"/><path d="M218 278 q22 18 44 0" fill="none"/><circle cx="360" cy="250" r="92"/><path d="M274 250 q20 -120 86 -120 q66 0 86 120"/><circle cx="332" cy="242" r="8"/><circle cx="388" cy="242" r="8"/><path d="M338 278 q22 18 44 0" fill="none"/><polygon points="140.0,108.0 145.4,122.5 160.9,123.2 148.8,132.9 152.9,147.8 140.0,139.2 127.1,147.8 131.2,132.9 119.1,123.2 134.6,122.5"/><polygon points="460.0,108.0 465.4,122.5 480.9,123.2 468.8,132.9 472.9,147.8 460.0,139.2 447.1,147.8 451.2,132.9 439.1,123.2 454.6,122.5"/><path d="M300 413.3 C268.5 396.5, 275.5 368.5, 300 385.3 C324.5 368.5, 331.5 396.5, 300 413.3 Z"/>
+  </g>
+</svg>

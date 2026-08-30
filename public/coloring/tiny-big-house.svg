@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Big House">
+  <title>Big House — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
+    <rect x="204.0" y="258.0" width="192.0" height="144.0" rx="8"/><path d="M180.0 258.0 L300 138.0 L420.0 258.0 Z"/><rect x="278.4" y="306.0" width="43.199999999999996" height="96.0"/><circle cx="252.0" cy="294.0" r="19.2"/><circle cx="348.0" cy="294.0" r="19.2"/>
+  </g>
+</svg>

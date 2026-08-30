@@ -8,7 +8,7 @@ create table if not exists public.admins (
 
 create table if not exists public.site_content (
   locale text not null check (locale in ('en','fa','fr','es')),
-  page_key text not null check (page_key in ('home','watch','play','create','explore','parents','about')),
+  page_key text not null check (page_key in ('home','watch','play','create','explore','storyhouse','parents','about')),
   content jsonb not null default '{}'::jsonb,
   updated_at timestamptz not null default now(),
   primary key (locale, page_key)
@@ -76,3 +76,35 @@ using (
 
 -- After creating your admin user in Authentication > Users, run:
 -- insert into public.admins(user_id) values ('YOUR-AUTH-USER-UUID');
+
+
+create table if not exists public.cms_json (
+  id text primary key,
+  payload jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
+alter table public.cms_json enable row level security;
+drop policy if exists "public read cms json" on public.cms_json;
+create policy "public read cms json" on public.cms_json for select using (true);
+drop policy if exists "admins manage cms json" on public.cms_json;
+create policy "admins manage cms json" on public.cms_json for all
+using (exists (select 1 from public.admins a where a.user_id = auth.uid()))
+with check (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create table if not exists public.households (
+  id uuid primary key default gen_random_uuid(),
+  parent_user_id uuid references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+create table if not exists public.kid_profiles (
+  id uuid primary key default gen_random_uuid(),
+  household_id uuid references public.households(id) on delete cascade,
+  display_name text not null,
+  avatar text not null,
+  pin_marks text[] not null,
+  age_band text not null,
+  progress jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+alter table public.households enable row level security;
+alter table public.kid_profiles enable row level security;

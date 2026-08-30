@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Park Festival">
+  <title>Park Festival — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <ellipse cx="160" cy="180" rx="80" ry="100"/><path d="M160 280 l-10 18 h20 z"/><path d="M160 298 q-12 40 0 80" fill="none"/><ellipse cx="240" cy="160" rx="80" ry="100"/><path d="M240 260 l-10 18 h20 z"/><path d="M240 278 q-12 40 0 80" fill="none"/><path d="M180 380 L300 180 L420 380 Z"/><rect x="270" y="300" width="60" height="80"/><polygon points="460.0,116.0 465.9,131.8 482.8,132.6 469.6,143.1 474.1,159.4 460.0,150.1 445.9,159.4 450.4,143.1 437.2,132.6 454.1,131.8"/><circle cx="300" cy="340" r="92"/><path d="M214 340 q20 -120 86 -120 q66 0 86 120"/><circle cx="272" cy="332" r="8"/><circle cx="328" cy="332" r="8"/><path d="M278 368 q22 18 44 0" fill="none"/>
+  </g>
+</svg>

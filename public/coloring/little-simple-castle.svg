@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="A Castle">
+  <title>A Castle — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="160" y="220" width="280" height="180"/><rect x="140" y="160" width="70" height="240"/><rect x="390" y="160" width="70" height="240"/><polygon points="140,160 175,110 210,160"/><polygon points="390,160 425,110 460,160"/><rect x="270" y="300" width="60" height="100"/>
+  </g>
+</svg>

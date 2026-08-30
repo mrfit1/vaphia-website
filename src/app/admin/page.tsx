@@ -7,6 +7,7 @@ import { getGlobalSettings, getPageContent } from "@/lib/content";
 import { pageLabelMap } from "@/lib/page-labels";
 import { locales, localeNames, type Locale } from "@/lib/i18n";
 import type { PageKey } from "@/lib/content-types";
+import { gameCatalog } from "@/lib/games/catalog";
 import { hasSupabaseConfig } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/admin";
 import { logoutAction, saveGlobalSettingsAction, savePageContentAction, uploadMediaAction } from "./actions";
@@ -82,10 +83,13 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 <label>YouTube URL<input name="youtubeUrl" defaultValue={settings.youtubeUrl} /></label>
                 <label>TikTok URL<input name="tiktokUrl" defaultValue={settings.tiktokUrl} /></label>
                 <label>Instagram URL<input name="instagramUrl" defaultValue={settings.instagramUrl} /></label>
+                <label>YouTube embed URL<input name="youtubeEmbed" defaultValue={settings.youtubeEmbed || ""} /></label>
+                <label>TikTok embed URL<input name="tiktokEmbed" defaultValue={settings.tiktokEmbed || ""} /></label>
+                <label>Instagram embed URL<input name="instagramEmbed" defaultValue={settings.instagramEmbed || ""} /></label>
                 <label>Google verification token<input name="googleVerification" defaultValue={settings.googleVerification} /></label>
                 <label>Bing verification token<input name="bingVerification" defaultValue={settings.bingVerification} /></label>
                 <fieldset className="admin-checks"><legend>Enabled games</legend>
-                  {['memory','tap','puzzle'].map((game) => <label key={game}><input type="checkbox" name={`game:${game}`} defaultChecked={settings.gamesEnabled.includes(game)} /> {humanize(game)}</label>)}
+                  {gameCatalog.map((game) => <label key={game.id}><input type="checkbox" name={`game:${game.id}`} defaultChecked={settings.gamesEnabled.includes(game.id)} /> {game.titles.en}</label>)}
                 </fieldset>
                 <button className="button primary" type="submit"><Save size={18} /> Save settings</button>
               </form>

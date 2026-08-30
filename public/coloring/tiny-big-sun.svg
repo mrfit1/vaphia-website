@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Big Sun">
+  <title>Big Sun — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
+    <circle cx="300" cy="250" r="90"/><line x1="402.0" y1="250.0" x2="438.0" y2="250.0"/><line x1="382.5" y1="310.0" x2="411.6" y2="331.1"/><line x1="331.5" y1="347.0" x2="342.6" y2="381.2"/><line x1="268.5" y1="347.0" x2="257.4" y2="381.2"/><line x1="217.5" y1="310.0" x2="188.4" y2="331.1"/><line x1="198.0" y1="250.0" x2="162.0" y2="250.0"/><line x1="217.5" y1="190.0" x2="188.4" y2="168.9"/><line x1="268.5" y1="153.0" x2="257.4" y2="118.8"/><line x1="331.5" y1="153.0" x2="342.6" y2="118.8"/><line x1="382.5" y1="190.0" x2="411.6" y2="168.9"/>
+  </g>
+</svg>

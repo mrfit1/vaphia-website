@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="A Train">
+  <title>A Train — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="80" y="260" width="120" height="80" rx="12"/><rect x="220" y="260" width="120" height="80" rx="12"/><rect x="360" y="220" width="140" height="120" rx="12"/><circle cx="120" cy="360" r="22"/><circle cx="260" cy="360" r="22"/><circle cx="400" cy="360" r="22"/><circle cx="470" cy="360" r="22"/><circle cx="120" cy="120" r="32"/><line x1="164.0" y1="120.0" x2="200.0" y2="120.0"/><line x1="155.6" y1="145.9" x2="184.7" y2="167.0"/><line x1="133.6" y1="161.8" x2="144.7" y2="196.1"/><line x1="106.4" y1="161.8" x2="95.3" y2="196.1"/><line x1="84.4" y1="145.9" x2="55.3" y2="167.0"/><line x1="76.0" y1="120.0" x2="40.0" y2="120.0"/><line x1="84.4" y1="94.1" x2="55.3" y2="73.0"/><line x1="106.4" y1="78.2" x2="95.3" y2="43.9"/><line x1="133.6" y1="78.2" x2="144.7" y2="43.9"/><line x1="155.6" y1="94.1" x2="184.7" y2="73.0"/>
+  </g>
+</svg>

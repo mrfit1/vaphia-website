@@ -50,12 +50,19 @@ export const defaultContent: SiteContent = {
       title: "Pick a place to discover",
       description: "Each place connects to a different kind of fun — stories, creativity, games and family adventures."
     },
+    storyhouse: {
+      metaTitle: "Vaphia Storyhouse",
+      metaDescription: "Original Vaphia picture stories to read and listen to, with no child account required.",
+      eyebrow: "Storyhouse",
+      title: "Open a book",
+      description: "Original stories for each language. Big pages, gentle motion, and a listen button."
+    },
     parents: {
       metaTitle: "Parents & Privacy | Vaphia",
       metaDescription: "Vaphia parent information, child-safety choices and privacy-first site settings.",
       eyebrow: "Grown-up zone",
       title: "Parents & Privacy",
-      description: "Vaphia is designed to work without child accounts. This page explains the privacy approach and gives grown-ups device-level controls."
+      description: "Vaphia works fully without login. Optional kid cards use a parent-created picture PIN, never a child email. This page explains the privacy approach and gives grown-ups device-level controls."
     },
     about: {
       metaTitle: "About Vania & Sophia | Vaphia",
@@ -113,6 +120,13 @@ export const defaultContent: SiteContent = {
       eyebrow: "کشف کن",
       title: "یک جا را برای کشف انتخاب کن",
       description: "هر بخش به نوع متفاوتی از سرگرمی وصل می‌شود؛ داستان، خلاقیت، بازی و ماجراجویی خانوادگی."
+    },
+    storyhouse: {
+      metaTitle: "خانه قصه وافیا",
+      metaDescription: "قصه‌های تصویری تازه وافیا برای خواندن و شنیدن، بدون حساب کودک.",
+      eyebrow: "خانه قصه",
+      title: "یک کتاب باز کن",
+      description: "قصه‌های اصیل برای هر زبان. صفحه‌های بزرگ، حرکت آرام و دکمه شنیدن."
     },
     parents: {
       metaTitle: "والدین و حریم خصوصی | وافیا",
@@ -178,6 +192,13 @@ export const defaultContent: SiteContent = {
       title: "Choisissez un endroit à découvrir",
       description: "Chaque lieu mène à un type de plaisir différent : histoires, créativité, jeux et aventures en famille."
     },
+    storyhouse: {
+      metaTitle: "Maison des histoires Vaphia",
+      metaDescription: "Histoires originales Vaphia à lire et à écouter, sans compte enfant.",
+      eyebrow: "Histoires",
+      title: "Ouvre un livre",
+      description: "Des histoires originales pour chaque langue. Grandes pages, mouvement doux et bouton écouter."
+    },
     parents: {
       metaTitle: "Parents & confidentialité | Vaphia",
       metaDescription: "Informations pour les parents, choix de sécurité et paramètres de confidentialité de Vaphia.",
@@ -241,6 +262,13 @@ export const defaultContent: SiteContent = {
       eyebrow: "Explorar",
       title: "Elige un lugar para descubrir",
       description: "Cada lugar lleva a un tipo de diversión diferente: historias, creatividad, juegos y aventuras familiares."
+    },
+    storyhouse: {
+      metaTitle: "Casa de cuentos Vaphia",
+      metaDescription: "Cuentos originales de Vaphia para leer y escuchar, sin cuenta infantil.",
+      eyebrow: "Cuentos",
+      title: "Abre un libro",
+      description: "Historias originales en cada idioma. Páginas grandes, movimiento suave y botón de escuchar."
     },
     parents: {
       metaTitle: "Padres y privacidad | Vaphia",

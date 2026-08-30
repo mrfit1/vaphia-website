@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Park Swing">
+  <title>Park Swing — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="160" y="140" width="16" height="260"/><rect x="420" y="140" width="16" height="260"/><rect x="160" y="140" width="276" height="16"/><rect x="230" y="320" width="140" height="24" rx="8"/><line x1="250" y1="156" x2="250" y2="320"/><line x1="350" y1="156" x2="350" y2="320"/><circle cx="480" cy="120" r="36"/><line x1="528.0" y1="120.0" x2="564.0" y2="120.0"/><line x1="518.8" y1="148.2" x2="548.0" y2="169.4"/><line x1="494.8" y1="165.7" x2="506.0" y2="199.9"/><line x1="465.2" y1="165.7" x2="454.0" y2="199.9"/><line x1="441.2" y1="148.2" x2="412.0" y2="169.4"/><line x1="432.0" y1="120.0" x2="396.0" y2="120.0"/><line x1="441.2" y1="91.8" x2="412.0" y2="70.6"/><line x1="465.2" y1="74.3" x2="454.0" y2="40.1"/><line x1="494.8" y1="74.3" x2="506.0" y2="40.1"/><line x1="518.8" y1="91.8" x2="548.0" y2="70.6"/>
+  </g>
+</svg>

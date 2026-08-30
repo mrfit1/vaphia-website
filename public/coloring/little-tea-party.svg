@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Tea Party">
+  <title>Tea Party — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <ellipse cx="300" cy="360" rx="170" ry="40"/><path d="M230 260 h60 v50 h-60 z"/><path d="M330 260 h60 v50 h-60 z"/><circle cx="260" cy="230" r="22"/><circle cx="360" cy="230" r="22"/><path d="M268.5 200 h63.0 l-9.0 40.5 h-45.0 z"/><ellipse cx="300" cy="200" rx="36.0" ry="18.0"/><circle cx="289.2" cy="191.9" r="8.1"/><circle cx="308.1" cy="187.4" r="9.0"/><circle cx="300" cy="196.4" r="7.2"/><circle cx="300" cy="173.9" r="6.3"/>
+  </g>
+</svg>

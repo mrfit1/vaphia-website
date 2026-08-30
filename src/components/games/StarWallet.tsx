@@ -1,40 +1,53 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import { afterPaint } from "@/lib/client-state";
+import { addVaphiaStars as addStars, readStars, resetVaphiaStars as resetStars } from "@/lib/stars";
+import { readStickerBook } from "@/lib/stickers";
 import type { Locale } from "@/lib/i18n";
-import { uiCopy } from "@/lib/ui-copy";
 
-const KEY = "vaphia-stars";
+const labels: Record<Locale, { stars: string; stickers: string }> = {
+  en: { stars: "Stars", stickers: "Stickers" },
+  fa: { stars: "ستاره‌ها", stickers: "استیکرها" },
+  fr: { stars: "Étoiles", stickers: "Stickers" },
+  es: { stars: "Estrellas", stickers: "Stickers" }
+};
 
 export function addVaphiaStars(amount: number) {
-  if (typeof window === "undefined") return;
-  const current = Number(localStorage.getItem(KEY) || "0");
-  localStorage.setItem(KEY, String(current + amount));
-  window.dispatchEvent(new Event("vaphia-stars"));
+  addStars(amount);
 }
 
 export function resetVaphiaStars() {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(KEY, "0");
-  window.dispatchEvent(new Event("vaphia-stars"));
+  resetStars();
 }
 
 export function StarWallet({ locale }: { locale: Locale }) {
   const [stars, setStars] = useState(0);
-  const t = uiCopy[locale];
+  const [stickers, setStickers] = useState(0);
+  const t = labels[locale];
+
   useEffect(() => {
-    const refresh = () => setStars(Number(localStorage.getItem(KEY) || "0"));
-    refresh();
+    const refresh = () => {
+      setStars(readStars());
+      setStickers(readStickerBook().length);
+    };
+    const stop = afterPaint(refresh);
     window.addEventListener("vaphia-stars", refresh);
-    return () => window.removeEventListener("vaphia-stars", refresh);
+    window.addEventListener("vaphia-stickers", refresh);
+    return () => {
+      stop();
+      window.removeEventListener("vaphia-stars", refresh);
+      window.removeEventListener("vaphia-stickers", refresh);
+    };
   }, []);
 
   return (
-    <div className="star-wallet" aria-label={`${stars} ${t.stars as string}`}>
-      <Star size={18} fill="currentColor" />
+    <div className="star-wallet" aria-label={`${stars} ${t.stars}, ${stickers} ${t.stickers}`}>
+      <span aria-hidden="true">⭐</span>
       <strong>{stars}</strong>
-      <span>{t.stars as string}</span>
+      <span>{t.stars}</span>
+      <span aria-hidden="true">📘</span>
+      <strong>{stickers}</strong>
     </div>
   );
 }

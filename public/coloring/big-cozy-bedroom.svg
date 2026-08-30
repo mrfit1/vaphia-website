@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Cozy Bedroom">
+  <title>Cozy Bedroom — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <rect x="120" y="280" width="280" height="110" rx="16"/><rect x="120" y="250" width="80" height="50" rx="10"/><path d="M480 110 a50 50 0 1 0 0 100 a36.0 36.0 0 1 1 0 -100"/><polygon points="400.0,104.0 403.9,114.6 415.2,115.1 406.4,122.1 409.4,132.9 400.0,126.7 390.6,132.9 393.6,122.1 384.8,115.1 396.1,114.6"/><polygon points="520.0,118.0 523.0,125.9 531.4,126.3 524.8,131.6 527.1,139.7 520.0,135.0 512.9,139.7 515.2,131.6 508.6,126.3 517.0,125.9"/><rect x="177.6" y="177.2" width="44.800000000000004" height="33.6" rx="8"/><path d="M172.0 177.2 L200 149.2 L228.0 177.2 Z"/><rect x="194.96" y="188.4" width="10.080000000000002" height="22.400000000000002"/><circle cx="188.8" cy="185.6" r="4.48"/><circle cx="211.2" cy="185.6" r="4.48"/><ellipse cx="417.4" cy="319.5" rx="8.1" ry="22.5"/><ellipse cx="442.6" cy="319.5" rx="8.1" ry="22.5"/><circle cx="430" cy="360" r="31.5"/><circle cx="420.1" cy="357.3" r="7"/><circle cx="439.9" cy="357.3" r="7"/><ellipse cx="430" cy="368.1" rx="8" ry="6"/>
+  </g>
+</svg>

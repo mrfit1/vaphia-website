@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Story Nook">
+  <title>Story Nook — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="180" y="180" width="240" height="200" rx="16"/><rect x="210" y="210" width="80" height="110"/><rect x="310" y="210" width="80" height="110"/><ellipse cx="275.0" cy="140" rx="30.0" ry="20.0"/><ellipse cx="320.0" cy="143.0" rx="35.0" ry="23.0"/><ellipse cx="300" cy="126.0" rx="25.0" ry="18.0"/><ellipse cx="124.6" cy="330.5" rx="9.9" ry="27.500000000000004"/><ellipse cx="155.4" cy="330.5" rx="9.9" ry="27.500000000000004"/><circle cx="140" cy="380" r="38.5"/><circle cx="127.9" cy="376.7" r="7"/><circle cx="152.1" cy="376.7" r="7"/><ellipse cx="140" cy="389.9" rx="8" ry="6"/>
+  </g>
+</svg>

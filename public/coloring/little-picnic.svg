@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Picnic">
+  <title>Picnic — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <ellipse cx="300" cy="360" rx="180" ry="50"/><path d="M198.0 300 h84.0 l-12.0 54.0 h-60.0 z"/><ellipse cx="240" cy="300" rx="48.0" ry="24.0"/><circle cx="225.6" cy="289.2" r="10.799999999999999"/><circle cx="250.8" cy="283.2" r="12.0"/><circle cx="240" cy="295.2" r="9.6"/><circle cx="240" cy="265.2" r="8.4"/><circle cx="360" cy="300" r="49.0"/><path d="M360 251.0 q10 -28.0 36 -35.0" fill="none"/><ellipse cx="379.6" cy="245.4" rx="15.399999999999999" ry="8.399999999999999"/><circle cx="120" cy="130" r="34"/><line x1="166.0" y1="130.0" x2="202.0" y2="130.0"/><line x1="157.2" y1="157.0" x2="186.3" y2="178.2"/><line x1="134.2" y1="173.7" x2="145.3" y2="208.0"/><line x1="105.8" y1="173.7" x2="94.7" y2="208.0"/><line x1="82.8" y1="157.0" x2="53.7" y2="178.2"/><line x1="74.0" y1="130.0" x2="38.0" y2="130.0"/><line x1="82.8" y1="103.0" x2="53.7" y2="81.8"/><line x1="105.8" y1="86.3" x2="94.7" y2="52.0"/><line x1="134.2" y1="86.3" x2="145.3" y2="52.0"/><line x1="157.2" y1="103.0" x2="186.3" y2="81.8"/>
+  </g>
+</svg>

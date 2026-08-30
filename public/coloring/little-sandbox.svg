@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Sandbox">
+  <title>Sandbox — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="120" y="280" width="360" height="130" rx="20"/><rect x="188.0" y="246.0" width="64.0" height="48.0" rx="8"/><path d="M180.0 246.0 L220 206.0 L260.0 246.0 Z"/><rect x="212.8" y="262.0" width="14.4" height="32.0"/><circle cx="204.0" cy="258.0" r="6.4"/><circle cx="236.0" cy="258.0" r="6.4"/><path d="M340 250 h80 l-12 90 h-56 z"/><ellipse cx="380" cy="250" rx="40" ry="12"/><circle cx="470" cy="140" r="34"/><line x1="516.0" y1="140.0" x2="552.0" y2="140.0"/><line x1="507.2" y1="167.0" x2="536.3" y2="188.2"/><line x1="484.2" y1="183.7" x2="495.3" y2="218.0"/><line x1="455.8" y1="183.7" x2="444.7" y2="218.0"/><line x1="432.8" y1="167.0" x2="403.7" y2="188.2"/><line x1="424.0" y1="140.0" x2="388.0" y2="140.0"/><line x1="432.8" y1="113.0" x2="403.7" y2="91.8"/><line x1="455.8" y1="96.3" x2="444.7" y2="62.0"/><line x1="484.2" y1="96.3" x2="495.3" y2="62.0"/><line x1="507.2" y1="113.0" x2="536.3" y2="91.8"/>
+  </g>
+</svg>

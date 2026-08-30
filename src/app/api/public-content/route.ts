@@ -6,13 +6,14 @@ import { defaultLocale, isLocale, locales } from "@/lib/i18n";
 export async function GET(request: NextRequest) {
   const requested = request.nextUrl.searchParams.get("lang") || defaultLocale;
   const locale = isLocale(requested) ? requested : defaultLocale;
-  const [settings, home, watch, play, create, explore, about, parents] = await Promise.all([
+  const [settings, home, watch, play, create, explore, storyhouse, about, parents] = await Promise.all([
     getGlobalSettings(),
     getPageContent(locale, "home"),
     getPageContent(locale, "watch"),
     getPageContent(locale, "play"),
     getPageContent(locale, "create"),
     getPageContent(locale, "explore"),
+    getPageContent(locale, "storyhouse"),
     getPageContent(locale, "about"),
     getPageContent(locale, "parents")
   ]);
@@ -29,7 +30,7 @@ export async function GET(request: NextRequest) {
         tiktok: settings.tiktokUrl,
         instagram: settings.instagramUrl
       },
-      pages: { home, watch, play, create, explore, about, parents },
+      pages: { home, watch, play, create, explore, storyhouse, about, parents },
       childSafety: {
         childAccountRequired: false,
         childEmailRequired: false,

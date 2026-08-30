@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Theater Show">
+  <title>Theater Show — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <path d="M80 120 q80 80 0 280"/><path d="M520 120 q-80 80 0 280"/><rect x="160" y="160" width="280" height="200"/><circle cx="260" cy="260" r="92"/><path d="M170 250 q40 -110 90 -110 q50 0 90 110"/><circle cx="232" cy="252" r="8"/><circle cx="288" cy="252" r="8"/><path d="M238 288 q22 18 44 0" fill="none"/><circle cx="360" cy="250" r="92"/><path d="M274 250 q20 -120 86 -120 q66 0 86 120"/><circle cx="332" cy="242" r="8"/><circle cx="388" cy="242" r="8"/><path d="M338 278 q22 18 44 0" fill="none"/><polygon points="300.0,120.0 304.9,133.2 319.0,133.8 308.0,142.6 311.8,156.2 300.0,148.4 288.2,156.2 292.0,142.6 281.0,133.8 295.1,133.2"/>
+  </g>
+</svg>

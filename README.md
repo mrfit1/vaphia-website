@@ -11,10 +11,16 @@ Production-oriented Next.js website for **Vania & Sophia / Vaphia**, prepared fo
 - Google/Bing verification hooks
 - Search/AI discoverability: SSR public content, structured data, robots rules for major search crawlers and OAI-SearchBot, plus `/llms.txt`
 - Mobile-first child-friendly UI with large visual action cards and motion/reduced-motion handling
-- Do not use multicolor arc motifs in the site design.
+- Do not use rainbows as site-wide chrome. Rainbow is a drawing crayon/tool only.
 - Social links: YouTube/TikTok `@vaphia`, Instagram `@vaphiaa`
 - Grown-up gate before external social links by default
-- Real browser activities: Memory Match, Catch the Star, Picture Puzzle
+- Vaphia World homepage with persisted age door (3–5 / 5–7 / 7–10)
+- Four lands: Watch, Play, Create, Storyhouse
+- 30 finger games with sound, cheers, levels and sticker rewards
+- Drawing studio with glitter, sparkle, neon, rainbow, eraser, stickers, PNG + giant PRINT
+- 60 unique printable coloring sheets (20 per age band), SVG/PNG/print
+- Original Storyhouse books per language (not translations)
+- Optional kid membership via picture + PIN created by a parent; site works without login
 - Vaphia Stars stored locally on the device
 - Drawing pad, interactive coloring studio and printable coloring SVG
 - Parents & Privacy page with working device settings
@@ -100,3 +106,14 @@ Add the locale to `src/lib/i18n.ts`, add its content object in `src/content.ts`,
 ## Adding a new game
 
 Create a client component in `src/components/games/`, add its ID to `GlobalSettings.gamesEnabled`, expose the toggle in Admin, and render it in the localized Play page. Keep child gameplay account-free unless there is a specific, privacy-reviewed reason to add an adult-managed account system.
+
+
+## Optional membership
+
+The public site is fully usable without login. A parent may create an optional kid card with a picture avatar and a 3-picture PIN. No child email or password. Progress (stars, stickers, drawings, age band) stays on-device unless a household is later synced through Supabase.
+
+Parent email is only for the household adult. No public child profiles, comments, ads or tracking.
+
+## Owner CMS
+
+`/admin` stays noindex and authenticated. When Supabase is connected, the owner can edit all localized page copy, upload hero/banner images, enable/order games, and set official YouTube/TikTok/Instagram URLs plus embed URLs. Stories, printables and stickers ship with rich defaults and can be overridden through `cms_json` / page copy. Never put a service-role key in `NEXT_PUBLIC_*`.

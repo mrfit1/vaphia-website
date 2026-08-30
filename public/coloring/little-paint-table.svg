@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Paint Table">
+  <title>Paint Table — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <rect x="120" y="320" width="360" height="80" rx="16"/><circle cx="200" cy="250" r="28"/><circle cx="280" cy="250" r="28"/><circle cx="360" cy="250" r="28"/><rect x="430" y="180" width="18" height="140" rx="8"/><polygon points="140.0,156.0 145.9,171.8 162.8,172.6 149.6,183.1 154.1,199.4 140.0,190.1 125.9,199.4 130.4,183.1 117.2,172.6 134.1,171.8"/>
+  </g>
+</svg>

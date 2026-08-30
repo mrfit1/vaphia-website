@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Beach Day">
+  <title>Beach Day — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <path d="M40 340 q140 -40 260 0 q130 40 260 0 v120 h-520 z"/><circle cx="120" cy="130" r="40"/><line x1="172.0" y1="130.0" x2="208.0" y2="130.0"/><line x1="162.1" y1="160.6" x2="191.2" y2="181.7"/><line x1="136.1" y1="179.5" x2="147.2" y2="213.7"/><line x1="103.9" y1="179.5" x2="92.8" y2="213.7"/><line x1="77.9" y1="160.6" x2="48.8" y2="181.7"/><line x1="68.0" y1="130.0" x2="32.0" y2="130.0"/><line x1="77.9" y1="99.4" x2="48.8" y2="78.3"/><line x1="103.9" y1="80.5" x2="92.8" y2="46.3"/><line x1="136.1" y1="80.5" x2="147.2" y2="46.3"/><line x1="162.1" y1="99.4" x2="191.2" y2="78.3"/><path d="M334.0 300 h132.0 l-18.0 30.0 h-96.0 z"/><path d="M400 300 L400 234.0 L448.0 300"/><rect x="220" y="250" width="16" height="90"/><polygon points="228,250 228,190 290,250"/>
+  </g>
+</svg>

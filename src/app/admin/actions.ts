@@ -9,7 +9,7 @@ import type { PageKey } from "@/lib/content-types";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/admin";
 
-const pageKeys: PageKey[] = ["home", "watch", "play", "create", "explore", "parents", "about"];
+const pageKeys: PageKey[] = ["home", "watch", "play", "create", "explore", "storyhouse", "parents", "about"];
 
 export async function loginAction(formData: FormData) {
   const email = String(formData.get("email") || "").trim();
@@ -70,9 +70,12 @@ export async function saveGlobalSettingsAction(formData: FormData) {
     youtubeUrl,
     tiktokUrl,
     instagramUrl,
+    youtubeEmbed: String(formData.get("youtubeEmbed") || "").trim(),
+    tiktokEmbed: String(formData.get("tiktokEmbed") || "").trim(),
+    instagramEmbed: String(formData.get("instagramEmbed") || "").trim(),
     googleVerification: String(formData.get("googleVerification") || "").trim(),
     bingVerification: String(formData.get("bingVerification") || "").trim(),
-    gamesEnabled: ["memory", "tap", "puzzle"].filter((game) => formData.get(`game:${game}`) === "on")
+    gamesEnabled: Array.from(formData.keys()).filter((key) => key.startsWith("game:") && formData.get(key) === "on").map((key) => key.slice(5))
   };
 
   const { data: existing } = await supabase.from("site_settings").select("settings").eq("id", "global").maybeSingle();

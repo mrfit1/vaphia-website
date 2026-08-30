@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Star Sky">
+  <title>Star Sky — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <path d="M180 110 a70 70 0 1 0 0 140 a50.4 50.4 0 1 1 0 -140"/><polygon points="320.0,120.0 329.9,146.4 358.0,147.6 336.0,165.2 343.5,192.4 320.0,176.8 296.5,192.4 304.0,165.2 282.0,147.6 310.1,146.4"/><polygon points="420.0,192.0 426.9,210.5 446.6,211.3 431.2,223.6 436.5,242.7 420.0,231.8 403.5,242.7 408.8,223.6 393.4,211.3 413.1,210.5"/><polygon points="500.0,118.0 505.4,132.5 520.9,133.2 508.8,142.9 512.9,157.8 500.0,149.2 487.1,157.8 491.2,142.9 479.1,133.2 494.6,132.5"/><ellipse cx="310" cy="340" rx="60" ry="40"/><ellipse cx="400" cy="346" rx="70" ry="46"/><ellipse cx="360" cy="312" rx="50" ry="36"/><rect x="124.0" y="353.0" width="112.0" height="84.0" rx="8"/><path d="M110.0 353.0 L180 283.0 L250.0 353.0 Z"/><rect x="167.4" y="381.0" width="25.2" height="56.0"/><circle cx="152.0" cy="374.0" r="11.2"/><circle cx="208.0" cy="374.0" r="11.2"/>
+  </g>
+</svg>

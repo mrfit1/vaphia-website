@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Kite Day">
+  <title>Kite Day — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
+    <polygon points="300,140 380,230 300,320 220,230"/><line x1="300" y1="320" x2="240" y2="430"/><ellipse cx="125.0" cy="160" rx="42.0" ry="28.0"/><ellipse cx="188.0" cy="164.2" rx="49.0" ry="32.199999999999996"/><ellipse cx="160" cy="140.4" rx="35.0" ry="25.2"/><ellipse cx="440.0" cy="150" rx="36.0" ry="24.0"/><ellipse cx="494.0" cy="153.6" rx="42.0" ry="27.599999999999998"/><ellipse cx="470" cy="133.2" rx="30.0" ry="21.599999999999998"/><circle cx="500" cy="120" r="30"/><line x1="542.0" y1="120.0" x2="578.0" y2="120.0"/><line x1="534.0" y1="144.7" x2="563.1" y2="165.8"/><line x1="513.0" y1="159.9" x2="524.1" y2="194.2"/><line x1="487.0" y1="159.9" x2="475.9" y2="194.2"/><line x1="466.0" y1="144.7" x2="436.9" y2="165.8"/><line x1="458.0" y1="120.0" x2="422.0" y2="120.0"/><line x1="466.0" y1="95.3" x2="436.9" y2="74.2"/><line x1="487.0" y1="80.1" x2="475.9" y2="45.8"/><line x1="513.0" y1="80.1" x2="524.1" y2="45.8"/><line x1="534.0" y1="95.3" x2="563.1" y2="74.2"/>
+  </g>
+</svg>

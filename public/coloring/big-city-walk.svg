@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="City Walk">
+  <title>City Walk — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
+    <rect x="94.0" y="273.0" width="112.0" height="84.0" rx="8"/><path d="M80.0 273.0 L150 203.0 L220.0 273.0 Z"/><rect x="137.4" y="301.0" width="25.2" height="56.0"/><circle cx="122.0" cy="294.0" r="11.2"/><circle cx="178.0" cy="294.0" r="11.2"/><rect x="228.0" y="241.0" width="144.0" height="108.0" rx="8"/><path d="M210.0 241.0 L300 151.0 L390.0 241.0 Z"/><rect x="283.8" y="277.0" width="32.4" height="72.0"/><circle cx="264.0" cy="268.0" r="14.4"/><circle cx="336.0" cy="268.0" r="14.4"/><rect x="408.0" y="283.5" width="104.0" height="78.0" rx="8"/><path d="M395.0 283.5 L460 218.5 L525.0 283.5 Z"/><rect x="448.3" y="309.5" width="23.400000000000002" height="52.0"/><circle cx="434.0" cy="303.0" r="10.4"/><circle cx="486.0" cy="303.0" r="10.4"/><circle cx="120" cy="120" r="28"/><line x1="160.0" y1="120.0" x2="196.0" y2="120.0"/><line x1="152.4" y1="143.5" x2="181.5" y2="164.7"/><line x1="132.4" y1="158.0" x2="143.5" y2="192.3"/><line x1="107.6" y1="158.0" x2="96.5" y2="192.3"/><line x1="87.6" y1="143.5" x2="58.5" y2="164.7"/><line x1="80.0" y1="120.0" x2="44.0" y2="120.0"/><line x1="87.6" y1="96.5" x2="58.5" y2="75.3"/><line x1="107.6" y1="82.0" x2="96.5" y2="47.7"/><line x1="132.4" y1="82.0" x2="143.5" y2="47.7"/><line x1="152.4" y1="96.5" x2="181.5" y2="75.3"/><ellipse cx="375.0" cy="130" rx="30.0" ry="20.0"/><ellipse cx="420.0" cy="133.0" rx="35.0" ry="23.0"/><ellipse cx="400" cy="116.0" rx="25.0" ry="18.0"/>
+  </g>
+</svg>

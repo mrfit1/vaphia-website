@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Big Flower">
+  <title>Big Flower — Vaphia coloring page</title>
+  <rect width="600" height="520" fill="#fffefb"/>
+  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
+  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
+  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
+    <ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(0 300 250)"/><ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(60 300 250)"/><ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(120 300 250)"/><ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(180 300 250)"/><ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(240 300 250)"/><ellipse cx="300" cy="152.0" rx="39.199999999999996" ry="72.8" transform="rotate(300 300 250)"/><circle cx="300" cy="250" r="50.4"/>
+  </g>
+</svg>
