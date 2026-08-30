@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="white"/>
+  <g fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M400 100l55 112 124 18-90 88 21 124-110-58-110 58 21-124-90-88 124-18z"/>
+    <path d="M190 540c-78-60-132-4-132 57 0 88 132 176 132 176s132-88 132-176c0-61-54-117-132-57z"/>
+    <path d="M610 535c-42-70-144-44-144 40 0 93 144 179 144 179s144-86 144-179c0-84-102-110-144-40z"/>
+    <path d="M176 868c114-74 334-74 448 0"/>
+  </g>
+  <text x="400" y="940" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="700">VAPHIA</text>
+</svg>
