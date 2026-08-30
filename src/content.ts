@@ -6,7 +6,7 @@ export const defaultContent: SiteContent = {
       metaTitle: "Vaphia | Vania & Sophia — Iran’s First Kid YouTubers",
       metaDescription: "Meet Vania and Sophia, Iran’s First Kid YouTubers. Watch family-friendly videos, play free games, create art and explore the playful world of Vaphia.",
       claim: "Vania & Sophia — Iran’s First Kid YouTubers",
-      title: "A colorful world of fun, play and smiles",
+      title: "A colorful world of fun, play & smiles",
       intro: "Cute adventures, creative activities, free games and happy videos made for curious young minds and their families.",
       watchLabel: "Watch",
       watchText: "Videos, stories and fun adventures",

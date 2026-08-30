@@ -5,7 +5,7 @@ import { celebrateReward, type StickerId } from "@/lib/stickers";
 import type { GameDef } from "@/lib/games/catalog";
 import type { Locale } from "@/lib/i18n";
 import { playCopy } from "@/lib/play-copy";
-import { Mark } from "@/components/marks/VaphiaMarks";
+import { GameBadge } from "@/components/games/GameBadge";
 import { Celebration } from "../Celebration";
 
 export function difficulty(age: "3-5" | "5-7" | "7-10" | null) {
@@ -79,7 +79,7 @@ export function GameFrame({
     <section className="game-card pictorial-game">
       {banner}
       <div className="game-title-row">
-        <span className="game-title-mark" style={{ background: game.tint }}><Mark id={game.icon} /></span>
+        <span className="game-title-mark" style={{ background: game.tint }}><GameBadge mechanic={game.mechanic} /></span>
         <h1>{game.titles[locale]}</h1>
       </div>
       {children}
