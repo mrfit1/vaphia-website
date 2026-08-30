@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Music Time">
-  <title>Music Time — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
-    <ellipse cx="240" cy="300" rx="70" ry="90"/><rect x="360" y="180" width="30" height="180" rx="8"/><circle cx="390" cy="360" r="36"/><polygon points="160.0,136.0 165.9,151.8 182.8,152.6 169.6,163.1 174.1,179.4 160.0,170.1 145.9,179.4 150.4,163.1 137.2,152.6 154.1,151.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Music Time">
+  <title>Music Time</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="9">
+    <polygon points="150.0,124.0 156.4,141.2 174.7,142.0 160.4,153.4 165.3,171.0 150.0,160.9 134.7,171.0 139.6,153.4 125.3,142.0 143.6,141.2"/><ellipse cx="300" cy="520" rx="90" ry="120"/><rect x="470" y="300" width="36" height="280" rx="8"/><circle cx="506" cy="580" r="50"/><circle cx="650" cy="728.75" r="52.5"/><path d="M601.5 728.75 q11.55 -68.25 48.5 -68.25 q37.8 0 48.5 68.25"/><circle cx="633.5" cy="722.75" r="5.25"/><circle cx="666.5" cy="722.75" r="5.25"/><path d="M636.5 745.25 q13.5 10.5 27.0 0" fill="none"/><path d="M620.0 775.25 L608.75 854.0 h82.5 L680.0 775.25 Z"/><line x1="636.5" y1="854.0" x2="636.5" y2="860"/><line x1="663.5" y1="854.0" x2="663.5" y2="860"/><line x1="620.0" y1="790.25" x2="597.5" y2="827.75"/><line x1="680.0" y1="790.25" x2="702.5" y2="827.75"/><line x1="40" y1="860" x2="760" y2="860"/><path d="M70 860 q8 -16 16 0" fill="none"/><path d="M148 860 q8 -16 16 0" fill="none"/><path d="M226 860 q8 -16 16 0" fill="none"/><path d="M304 860 q8 -16 16 0" fill="none"/><path d="M382 860 q8 -16 16 0" fill="none"/><path d="M460 860 q8 -16 16 0" fill="none"/><path d="M538 860 q8 -16 16 0" fill="none"/><path d="M616 860 q8 -16 16 0" fill="none"/><path d="M694 860 q8 -16 16 0" fill="none"/>
   </g>
 </svg>

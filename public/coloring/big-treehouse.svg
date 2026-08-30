@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Treehouse">
-  <title>Treehouse — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">7-10</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="5">
-    <rect x="204" y="300" width="32" height="80"/><circle cx="220" cy="260" r="70"/><circle cx="180" cy="280" r="40"/><circle cx="262" cy="280" r="38"/><rect x="300" y="200" width="160" height="110" rx="8"/><rect x="360" y="250" width="36" height="60"/><line x1="250" y1="360" x2="320" y2="310"/><path d="M420 160 q20 -20 40 0 q-20 -8 -40 0"/><circle cx="464" cy="158" r="5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Treehouse">
+  <title>Treehouse</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="6">
+    <circle cx="150" cy="130" r="46"/><line x1="210.0" y1="130.0" x2="244.0" y2="130.0"/><line x1="202.0" y1="160.0" x2="231.4" y2="177.0"/><line x1="180.0" y1="182.0" x2="197.0" y2="211.4"/><line x1="150.0" y1="190.0" x2="150.0" y2="224.0"/><line x1="120.0" y1="182.0" x2="103.0" y2="211.4"/><line x1="98.0" y1="160.0" x2="68.6" y2="177.0"/><line x1="90.0" y1="130.0" x2="56.0" y2="130.0"/><line x1="98.0" y1="100.0" x2="68.6" y2="83.0"/><line x1="120.0" y1="78.0" x2="103.0" y2="48.6"/><line x1="150.0" y1="70.0" x2="150.0" y2="36.0"/><line x1="180.0" y1="78.0" x2="197.0" y2="48.6"/><line x1="202.0" y1="100.0" x2="231.4" y2="83.0"/><ellipse cx="572.5" cy="130" rx="33.0" ry="22.0"/><ellipse cx="622.0" cy="133.3" rx="38.5" ry="25.3"/><ellipse cx="600" cy="114.6" rx="27.500000000000004" ry="19.8"/><rect x="258.4" y="738.5" width="43.2" height="121.50000000000001"/><circle cx="280" cy="671.0" r="94.5"/><circle cx="226.0" cy="700.7" r="54.0"/><circle cx="336.7" cy="700.7" r="51.300000000000004"/><rect x="420" y="440" width="200" height="130" rx="10"/><rect x="500" y="500" width="40" height="70"/><line x1="300" y1="780" x2="430" y2="570"/><rect x="248" y="770" width="36" height="12"/><rect x="288" y="710" width="36" height="12"/><rect x="328" y="650" width="36" height="12"/><line x1="40" y1="860" x2="760" y2="860"/><path d="M70 860 q8 -16 16 0" fill="none"/><path d="M148 860 q8 -16 16 0" fill="none"/><path d="M226 860 q8 -16 16 0" fill="none"/><path d="M304 860 q8 -16 16 0" fill="none"/><path d="M382 860 q8 -16 16 0" fill="none"/><path d="M460 860 q8 -16 16 0" fill="none"/><path d="M538 860 q8 -16 16 0" fill="none"/><path d="M616 860 q8 -16 16 0" fill="none"/><path d="M694 860 q8 -16 16 0" fill="none"/>
   </g>
 </svg>

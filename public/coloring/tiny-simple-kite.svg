@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="A Kite">
+  <title>A Kite</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <circle cx="150" cy="150" r="48"/><line x1="212.0" y1="150.0" x2="246.0" y2="150.0"/><line x1="203.7" y1="181.0" x2="233.1" y2="198.0"/><line x1="181.0" y1="203.7" x2="198.0" y2="233.1"/><line x1="150.0" y1="212.0" x2="150.0" y2="246.0"/><line x1="119.0" y1="203.7" x2="102.0" y2="233.1"/><line x1="96.3" y1="181.0" x2="66.9" y2="198.0"/><line x1="88.0" y1="150.0" x2="54.0" y2="150.0"/><line x1="96.3" y1="119.0" x2="66.9" y2="102.0"/><line x1="119.0" y1="96.3" x2="102.0" y2="66.9"/><line x1="150.0" y1="88.0" x2="150.0" y2="54.0"/><line x1="181.0" y1="96.3" x2="198.0" y2="66.9"/><line x1="203.7" y1="119.0" x2="233.1" y2="102.0"/><ellipse cx="525.0" cy="160" rx="42.0" ry="28.0"/><ellipse cx="588.0" cy="164.2" rx="49.0" ry="32.199999999999996"/><ellipse cx="560" cy="140.4" rx="35.0" ry="25.2"/><polygon points="400,220 520,360 400,500 280,360"/><line x1="400" y1="500" x2="340" y2="820"/><polygon points="360,560 380,580 360,600 340,580"/><polygon points="330,680 350,700 330,720 310,700"/><line x1="40" y1="860" x2="760" y2="860"/><path d="M70 860 q8 -16 16 0" fill="none"/><path d="M148 860 q8 -16 16 0" fill="none"/><path d="M226 860 q8 -16 16 0" fill="none"/><path d="M304 860 q8 -16 16 0" fill="none"/><path d="M382 860 q8 -16 16 0" fill="none"/><path d="M460 860 q8 -16 16 0" fill="none"/><path d="M538 860 q8 -16 16 0" fill="none"/><path d="M616 860 q8 -16 16 0" fill="none"/><path d="M694 860 q8 -16 16 0" fill="none"/>
+  </g>
+</svg>

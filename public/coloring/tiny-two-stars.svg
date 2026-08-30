@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Two Stars">
-  <title>Two Stars — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
-    <polygon points="210.0,150.0 237.2,222.6 314.6,226.0 253.9,274.3 274.7,349.0 210.0,306.2 145.3,349.0 166.1,274.3 105.4,226.0 182.8,222.6"/><polygon points="400.0,190.0 419.7,242.8 476.1,245.3 432.0,280.4 447.0,334.7 400.0,303.6 353.0,334.7 368.0,280.4 323.9,245.3 380.3,242.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Two Stars">
+  <title>Two Stars</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <polygon points="280.0,330.0 317.0,429.0 422.7,433.6 339.9,499.5 368.2,601.4 280.0,543.0 191.8,601.4 220.1,499.5 137.3,433.6 243.0,429.0"/><polygon points="540.0,390.0 567.2,462.6 644.6,466.0 583.9,514.3 604.7,589.0 540.0,546.2 475.3,589.0 496.1,514.3 435.4,466.0 512.8,462.6"/>
   </g>
 </svg>

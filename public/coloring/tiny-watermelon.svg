@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Watermelon">
+  <title>Watermelon</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <path d="M140 620 a280 280 0 0 0 520 0 Z"/><path d="M180 620 a240 180 0 0 0 440 0" fill="none"/><ellipse cx="320" cy="700" rx="8" ry="14"/><ellipse cx="400" cy="730" rx="8" ry="14"/><ellipse cx="480" cy="700" rx="8" ry="14"/><ellipse cx="360" cy="780" rx="8" ry="14"/><ellipse cx="440" cy="780" rx="8" ry="14"/>
+  </g>
+</svg>

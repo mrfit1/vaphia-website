@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="A Duck">
+  <title>A Duck</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <circle cx="150" cy="150" r="48"/><line x1="212.0" y1="150.0" x2="246.0" y2="150.0"/><line x1="203.7" y1="181.0" x2="233.1" y2="198.0"/><line x1="181.0" y1="203.7" x2="198.0" y2="233.1"/><line x1="150.0" y1="212.0" x2="150.0" y2="246.0"/><line x1="119.0" y1="203.7" x2="102.0" y2="233.1"/><line x1="96.3" y1="181.0" x2="66.9" y2="198.0"/><line x1="88.0" y1="150.0" x2="54.0" y2="150.0"/><line x1="96.3" y1="119.0" x2="66.9" y2="102.0"/><line x1="119.0" y1="96.3" x2="102.0" y2="66.9"/><line x1="150.0" y1="88.0" x2="150.0" y2="54.0"/><line x1="181.0" y1="96.3" x2="198.0" y2="66.9"/><line x1="203.7" y1="119.0" x2="233.1" y2="102.0"/><path d="M40 810 q80 24 160 0 q80 -24 160 0 q80 24 160 0 q80 -24 160 0 v170 H40 Z"/><ellipse cx="400" cy="760" rx="90" ry="50"/><circle cx="490" cy="730" r="36"/><path d="M520 730 l40 8 l-40 12 z"/><circle cx="502" cy="722" r="5"/><ellipse cx="340" cy="710" rx="28" ry="16"/>
+  </g>
+</svg>

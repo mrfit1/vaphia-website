@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Story Nook">
-  <title>Story Nook — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
-    <rect x="180" y="180" width="240" height="200" rx="16"/><rect x="210" y="210" width="80" height="110"/><rect x="310" y="210" width="80" height="110"/><ellipse cx="275.0" cy="140" rx="30.0" ry="20.0"/><ellipse cx="320.0" cy="143.0" rx="35.0" ry="23.0"/><ellipse cx="300" cy="126.0" rx="25.0" ry="18.0"/><ellipse cx="124.6" cy="330.5" rx="9.9" ry="27.500000000000004"/><ellipse cx="155.4" cy="330.5" rx="9.9" ry="27.500000000000004"/><circle cx="140" cy="380" r="38.5"/><circle cx="127.9" cy="376.7" r="7"/><circle cx="152.1" cy="376.7" r="7"/><ellipse cx="140" cy="389.9" rx="8" ry="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Story Nook">
+  <title>Story Nook</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="9">
+    <rect x="90" y="120" width="70" height="320"/><rect x="175" y="120" width="70" height="320"/><rect x="555" y="120" width="70" height="320"/><rect x="260" y="700" width="220" height="100" rx="12"/><rect x="290" y="610" width="50" height="80"/><rect x="370" y="620" width="50" height="70"/><ellipse cx="160" cy="821.5" rx="29.700000000000003" ry="34.1"/><ellipse cx="144.6" cy="751.1" rx="8.8" ry="24.200000000000003"/><ellipse cx="175.4" cy="751.1" rx="8.8" ry="24.200000000000003"/><circle cx="160" cy="778.6" r="26.400000000000002"/><circle cx="151.2" cy="776.4" r="6"/><circle cx="168.8" cy="776.4" r="6"/><ellipse cx="160" cy="787.4" rx="7" ry="5"/><ellipse cx="138.0" cy="855.6" rx="9.9" ry="5.5"/><ellipse cx="182.0" cy="855.6" rx="9.9" ry="5.5"/><ellipse cx="380.0" cy="80" rx="24.0" ry="16.0"/><ellipse cx="416.0" cy="82.4" rx="28.0" ry="18.400000000000002"/><ellipse cx="400" cy="68.8" rx="20.0" ry="14.4"/><line x1="40" y1="860" x2="760" y2="860"/>
   </g>
 </svg>

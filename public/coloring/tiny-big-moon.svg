@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Big Moon">
-  <title>Big Moon — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
-    <path d="M320 140 a110 110 0 1 0 0 220 a79.2 79.2 0 1 1 0 -220"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Big Moon">
+  <title>Big Moon</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <path d="M420 310 a150 150 0 1 0 0 300 a108.0 108.0 0 1 1 0 -300"/><polygon points="160.0,184.0 168.9,207.8 194.2,208.9 174.4,224.7 181.2,249.1 160.0,235.1 138.8,249.1 145.6,224.7 125.8,208.9 151.1,207.8"/><polygon points="640.0,152.0 646.9,170.5 666.6,171.3 651.2,183.6 656.5,202.7 640.0,191.8 623.5,202.7 628.8,183.6 613.4,171.3 633.1,170.5"/><polygon points="680.0,298.0 685.4,312.5 700.9,313.2 688.8,322.9 692.9,337.8 680.0,329.2 667.1,337.8 671.2,322.9 659.1,313.2 674.6,312.5"/>
   </g>
 </svg>

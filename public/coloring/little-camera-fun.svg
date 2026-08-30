@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Camera Fun">
-  <title>Camera Fun — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
-    <rect x="180" y="200" width="240" height="160" rx="24"/><circle cx="300" cy="280" r="50"/><circle cx="300" cy="280" r="24"/><rect x="220" y="170" width="70" height="36" rx="8"/><polygon points="470.0,132.0 476.9,150.5 496.6,151.3 481.2,163.6 486.5,182.7 470.0,171.8 453.5,182.7 458.8,163.6 443.4,151.3 463.1,150.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Camera Fun">
+  <title>Camera Fun</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="9">
+    <polygon points="150.0,132.0 156.9,150.5 176.6,151.3 161.2,163.6 166.5,182.7 150.0,171.8 133.5,182.7 138.8,163.6 123.4,151.3 143.1,150.5"/><rect x="200" y="360" width="400" height="240" rx="28"/><circle cx="400" cy="480" r="80"/><circle cx="400" cy="480" r="40"/><rect x="250" y="310" width="90" height="50" rx="10"/><circle cx="540" cy="400" r="14"/><line x1="40" y1="860" x2="760" y2="860"/><path d="M70 860 q8 -16 16 0" fill="none"/><path d="M148 860 q8 -16 16 0" fill="none"/><path d="M226 860 q8 -16 16 0" fill="none"/><path d="M304 860 q8 -16 16 0" fill="none"/><path d="M382 860 q8 -16 16 0" fill="none"/><path d="M460 860 q8 -16 16 0" fill="none"/><path d="M538 860 q8 -16 16 0" fill="none"/><path d="M616 860 q8 -16 16 0" fill="none"/><path d="M694 860 q8 -16 16 0" fill="none"/>
   </g>
 </svg>

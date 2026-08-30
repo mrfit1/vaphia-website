@@ -41,7 +41,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Draw, color and create with Vaphia’s free child-friendly creative activities.",
       eyebrow: "Create",
       title: "Make something amazing",
-      description: "Use the doodle pad, coloring studio and printable activities to create your own Vaphia-inspired art."
+      description: "Pick a door. Color, print and save pictures made just for that age."
     },
     explore: {
       metaTitle: "Explore Vaphia World",
@@ -112,7 +112,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "نقاشی، رنگ‌آمیزی و فعالیت‌های خلاقانه رایگان وافیا برای کودکان.",
       eyebrow: "بساز",
       title: "یک چیز فوق‌العاده بساز",
-      description: "با صفحه نقاشی، استودیوی رنگ‌آمیزی و فعالیت‌های چاپی، هنر خودت را بساز."
+      description: "یک در را باز کن. فقط عکس‌های همان سن را رنگ کن، چاپ کن و ذخیره کن."
     },
     explore: {
       metaTitle: "کشف دنیای وافیا",
@@ -183,7 +183,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Dessinez, coloriez et créez avec les activités gratuites de Vaphia.",
       eyebrow: "Créer",
       title: "Créez quelque chose de génial",
-      description: "Utilisez le carnet de dessin, le coloriage et les activités imprimables pour créer votre propre art."
+      description: "Choisis une porte. Colorie, imprime et enregistre les images de cet âge."
     },
     explore: {
       metaTitle: "Explorer le monde Vaphia",
@@ -254,7 +254,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Dibuja, colorea y crea con las actividades gratuitas de Vaphia.",
       eyebrow: "Crear",
       title: "Crea algo increíble",
-      description: "Usa el bloc de dibujo, el estudio de color y actividades imprimibles para crear tu propio arte."
+      description: "Elige una puerta. Colorea, imprime y guarda las fotos de esa edad."
     },
     explore: {
       metaTitle: "Explora Vaphia World",

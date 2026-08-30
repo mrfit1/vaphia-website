@@ -5,7 +5,7 @@ import { gameCatalog } from "@/lib/games/catalog";
 import { storyCatalog } from "@/lib/stories/catalog";
 import { coloringCatalog } from "@/lib/coloring/catalog";
 
-const routes = ["", "/watch", "/play", "/create", "/storyhouse", "/explore", "/about", "/parents", "/stickers"];
+const routes = ["", "/watch", "/play", "/create", "/create/draw", "/create/ages/3-5", "/create/ages/5-7", "/create/ages/7-10", "/storyhouse", "/explore", "/about", "/parents", "/stickers"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

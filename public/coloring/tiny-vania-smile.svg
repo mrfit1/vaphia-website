@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Vania Smile">
-  <title>Vania Smile — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="8"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">3-5</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="12">
-    <circle cx="300" cy="250" r="92"/><path d="M214 250 q20 -120 86 -120 q66 0 86 120"/><circle cx="272" cy="242" r="8"/><circle cx="328" cy="242" r="8"/><path d="M278 278 q22 18 44 0" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Vania Smile">
+  <title>Vania Smile</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="14">
+    <circle cx="400" cy="623.75" r="94.5"/><path d="M309.5 623.75 q20.79 -122.85000000000001 90.5 -122.85000000000001 q68.03999999999999 0 90.5 122.85000000000001"/><circle cx="370.3" cy="612.95" r="9.450000000000001"/><circle cx="429.7" cy="612.95" r="9.450000000000001"/><path d="M375.7 653.45 q24.3 18.900000000000002 48.6 0" fill="none"/><path d="M346.0 707.45 L325.75 849.2 h148.5 L454.0 707.45 Z"/><line x1="375.7" y1="849.2" x2="375.7" y2="860"/><line x1="424.3" y1="849.2" x2="424.3" y2="860"/><line x1="346.0" y1="734.45" x2="305.5" y2="801.95"/><line x1="454.0" y1="734.45" x2="494.5" y2="801.95"/><line x1="40" y1="860" x2="760" y2="860"/><path d="M70 860 q8 -16 16 0" fill="none"/><path d="M148 860 q8 -16 16 0" fill="none"/><path d="M226 860 q8 -16 16 0" fill="none"/><path d="M304 860 q8 -16 16 0" fill="none"/><path d="M382 860 q8 -16 16 0" fill="none"/><path d="M460 860 q8 -16 16 0" fill="none"/><path d="M538 860 q8 -16 16 0" fill="none"/><path d="M616 860 q8 -16 16 0" fill="none"/><path d="M694 860 q8 -16 16 0" fill="none"/>
   </g>
 </svg>

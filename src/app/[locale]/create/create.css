@@ -1,0 +1,192 @@
+/* Create hub, printables, drawing studio — mobile first */
+.create-hub {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  text-align: center;
+  padding: 18px 0 80px;
+}
+.create-hub h1,
+.coloring-library h1,
+.coloring-sheet h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3.6rem);
+  letter-spacing: -.06em;
+}
+.create-hub p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+.create-doors {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.create-door,
+.create-draw-door {
+  min-height: 210px;
+  border-radius: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px;
+  border: 4px solid #fff;
+  text-align: center;
+}
+.create-door strong,
+.create-draw-door strong {
+  font-size: clamp(1.6rem, 6vw, 2.3rem);
+}
+.create-door span:not(.age-mark):not(.door-preview) {
+  color: var(--muted);
+  font-weight: 800;
+}
+.door-preview {
+  width: min(72%, 220px);
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  background: #fff center / contain no-repeat;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.create-draw-door {
+  width: 100%;
+  min-height: 120px;
+  background: linear-gradient(145deg, #fff2ba, #fff);
+  flex-direction: row;
+  gap: 14px;
+}
+.create-room-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.create-room-bar h1 { flex: 1; text-align: center; }
+.coloring-library { padding-bottom: 80px; }
+.coloring-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.coloring-card {
+  min-height: 0;
+  background: #fff;
+}
+.coloring-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #fff center / contain no-repeat;
+  border-radius: 18px;
+}
+.drawing-studio .pictorial-tool,
+.coloring-sheet .pictorial-tool {
+  width: 92px;
+  height: 92px;
+  min-width: 92px;
+  min-height: 92px;
+  font-size: 2.7rem;
+  border-radius: 28px;
+}
+.drawing-studio .size-dot {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  min-height: 72px;
+}
+.drawing-studio .swatch,
+.coloring-sheet .swatch {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+}
+.drawing-studio .doodle-canvas {
+  height: min(62vh, 520px);
+  border-radius: 28px;
+  touch-action: none;
+}
+.coloring-raster {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+  border-radius: 24px;
+  touch-action: none;
+}
+.coloring-host svg { width: 100%; height: auto; cursor: pointer; }
+.create-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+.create-actions .pictorial-tool { justify-self: center; }
+.giant-print-button {
+  width: 100%;
+  min-height: 96px;
+}
+.save-button { background: var(--mint); }
+.pictorial-tool:active,
+.pictorial-tool.is-press,
+.swatch:active,
+.swatch.is-press,
+.coloring-card:active,
+.coloring-card.is-press,
+.create-door:active,
+.create-door.is-press,
+.giant-print-button:active,
+.giant-print-button.is-press {
+  transform: translateY(6px) scale(.94);
+}
+
+@media (min-width: 760px) {
+  .create-doors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .coloring-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hub-3-5 .coloring-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hub-7-10 .coloring-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .create-actions { grid-template-columns: auto 1fr 1fr; justify-items: stretch; }
+  .drawing-studio .pictorial-tool {
+    width: 104px;
+    height: 104px;
+    min-width: 104px;
+    min-height: 104px;
+    font-size: 3rem;
+  }
+}
+
+.pictorial-tool.tool-glitter,
+.pictorial-tool.tool-sparkle {
+  background-image:
+    radial-gradient(circle at 18% 28%, #fff 0 2.2px, transparent 3px),
+    radial-gradient(circle at 72% 22%, #ffe37b 0 2px, transparent 2.8px),
+    radial-gradient(circle at 40% 78%, #ffd6ea 0 1.6px, transparent 2.4px),
+    radial-gradient(circle at 82% 68%, #fff 0 1.8px, transparent 2.6px),
+    linear-gradient(135deg, #e8b923, #ff5bac 42%, #8a6bff 72%, #35d8eb);
+  animation: glitter-twinkle .9s steps(2) infinite;
+}
+.pictorial-tool.tool-neon {
+  background: radial-gradient(circle at 50% 50%, #fff 0 8px, #35d8eb 38%, #8a6bff);
+  box-shadow: 0 0 18px #35d8eb, 0 8px 0 rgba(70, 48, 109, .12);
+}
+@keyframes glitter-twinkle {
+  50% { filter: brightness(1.18) saturate(1.25); }
+}
+@media print {
+  .site-header, .site-footer, .palette, .pictorial-toolbar, .create-actions,
+  .create-room-bar, .create-hub, .celebration-burst { display: none !important; }
+  .coloring-sheet h1 { display: none !important; }
+}
+
+.coloring-print-art { width: 100%; background: #fff; border-radius: 24px; overflow: hidden; }
+.coloring-print-art img { width: 100%; height: auto; display: block; }
+@media print {
+  .coloring-print-art, .coloring-host, .doodle-canvas, .coloring-raster {
+    box-shadow: none !important;
+    border: 0 !important;
+    width: 100% !important;
+  }
+}

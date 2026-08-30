@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Paint Table">
-  <title>Paint Table — Vaphia coloring page</title>
-  <rect width="600" height="520" fill="#fffefb"/>
-  <rect x="18" y="18" width="564" height="484" rx="28" fill="#fff" stroke="#2c2048" stroke-width="4"/>
-  <text x="40" y="56" font-family="Nunito, ui-rounded, sans-serif" font-size="22" font-weight="800" fill="#2c2048">Vaphia</text>
-  <text x="560" y="56" text-anchor="end" font-family="Nunito, ui-rounded, sans-serif" font-size="16" fill="#6d6280">5-7</text>
-  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="7">
-    <rect x="120" y="320" width="360" height="80" rx="16"/><circle cx="200" cy="250" r="28"/><circle cx="280" cy="250" r="28"/><circle cx="360" cy="250" r="28"/><rect x="430" y="180" width="18" height="140" rx="8"/><polygon points="140.0,156.0 145.9,171.8 162.8,172.6 149.6,183.1 154.1,199.4 140.0,190.1 125.9,199.4 130.4,183.1 117.2,172.6 134.1,171.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Paint Table">
+  <title>Paint Table</title>
+  <rect width="800" height="1000" fill="#fffefb"/>
+  <g fill="#fff" stroke="#2c2048" stroke-linejoin="round" stroke-linecap="round" stroke-width="9">
+    <rect x="80" y="90" width="200" height="150" rx="10"/><circle cx="180" cy="150" r="28"/><line x1="222.0" y1="150.0" x2="256.0" y2="150.0"/><line x1="216.4" y1="171.0" x2="245.8" y2="188.0"/><line x1="201.0" y1="186.4" x2="218.0" y2="215.8"/><line x1="180.0" y1="192.0" x2="180.0" y2="226.0"/><line x1="159.0" y1="186.4" x2="142.0" y2="215.8"/><line x1="143.6" y1="171.0" x2="114.2" y2="188.0"/><line x1="138.0" y1="150.0" x2="104.0" y2="150.0"/><line x1="143.6" y1="129.0" x2="114.2" y2="112.0"/><line x1="159.0" y1="113.6" x2="142.0" y2="84.2"/><line x1="180.0" y1="108.0" x2="180.0" y2="74.0"/><line x1="201.0" y1="113.6" x2="218.0" y2="84.2"/><line x1="216.4" y1="129.0" x2="245.8" y2="112.0"/><rect x="120" y="780" width="560" height="80" rx="16"/><circle cx="240" cy="720" r="36"/><circle cx="340" cy="720" r="36"/><circle cx="440" cy="720" r="36"/><rect x="540" y="640" width="22" height="150" rx="8"/><circle cx="160" cy="657.5" r="49.0"/><path d="M111.0 654.7 q22.05 -58.8 49.0 -58.8 q26.950000000000003 0 49.0 58.8"/><circle cx="144.6" cy="651.9" r="4.8999999999999995"/><circle cx="175.4" cy="651.9" r="4.8999999999999995"/><path d="M147.4 672.9 q12.6 9.799999999999999 25.2 0" fill="none"/><path d="M132.0 700.9 L121.5 774.4 h77.0 L188.0 700.9 Z"/><line x1="147.4" y1="774.4" x2="147.4" y2="780"/><line x1="172.6" y1="774.4" x2="172.6" y2="780"/><line x1="132.0" y1="714.9" x2="111.0" y2="749.9"/><line x1="188.0" y1="714.9" x2="209.0" y2="749.9"/><polygon points="640.0,134.0 646.4,151.2 664.7,152.0 650.4,163.4 655.3,181.0 640.0,170.9 624.7,181.0 629.6,163.4 615.3,152.0 633.6,151.2"/><line x1="40" y1="860" x2="760" y2="860"/>
   </g>
 </svg>
