@@ -16,7 +16,9 @@ Public brand statement: Vania & Sophia — Iran’s First Kid YouTubers.
 - /watch — family-friendly video discovery
 - /play — free browser games; no child account or email required
 - /create — drawing, coloring and printable activities
-- /storyhouse — original picture books per language
+- /storyhouse — original picture books to read and a separate audiobook library per language
+- /storyhouse/read — animated picture books for reading
+- /storyhouse/audio — original audiobooks prepared for gentle female narration
 - /create — drawing studio, glitter tools, 60 printable coloring sheets
 - /play — 30 finger games with cheers and stickers
 - /explore — child-friendly discovery hub

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { StoryReader } from "@/components/storyhouse/StoryReader";
 import { storyById, storyCatalog } from "@/lib/stories/catalog";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/config/site";
@@ -20,10 +21,26 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function BookPage({ params }: { params: Promise<{ locale: string; bookId: string }> }) {
+export default async function ReadBookPage({ params }: { params: Promise<{ locale: string; bookId: string }> }) {
   const { locale, bookId } = await params;
   if (!isLocale(locale)) notFound();
   const book = storyById(locale as Locale, bookId);
   if (!book) notFound();
-  redirect(`/${locale}/storyhouse/read/${book.id}`);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.title,
+    description: book.blurb,
+    inLanguage: locale,
+    url: `${siteConfig.defaultUrl}/${locale}/storyhouse/read/${book.id}`,
+    numberOfPages: book.pages.length,
+    isAccessibleForFree: true
+  };
+  return (
+    <main className="shell">
+      <h1 className="story-title">{book.title}</h1>
+      <StoryReader book={book} locale={locale as Locale} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    </main>
+  );
 }

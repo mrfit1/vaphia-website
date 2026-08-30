@@ -55,7 +55,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Original Vaphia picture stories to read and listen to, with no child account required.",
       eyebrow: "Storyhouse",
       title: "Open a book",
-      description: "Original stories for each language. Big pages, gentle motion, and a listen button."
+      description: "Choose animated picture books to read or a growing audiobook shelf. Every language has its own original stories."
     },
     parents: {
       metaTitle: "Parents & Privacy | Vaphia",
@@ -126,7 +126,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "قصه‌های تصویری تازه وافیا برای خواندن و شنیدن، بدون حساب کودک.",
       eyebrow: "خانه قصه",
       title: "یک کتاب باز کن",
-      description: "قصه‌های اصیل برای هر زبان. صفحه‌های بزرگ، حرکت آرام و دکمه شنیدن."
+      description: "کتاب‌های تصویری را خودت بخوان یا از قفسه رو‌به‌رشد کتاب‌های صوتی انتخاب کن؛ هر زبان داستان‌های اصیل خودش را دارد."
     },
     parents: {
       metaTitle: "والدین و حریم خصوصی | وافیا",
@@ -197,7 +197,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Histoires originales Vaphia à lire et à écouter, sans compte enfant.",
       eyebrow: "Histoires",
       title: "Ouvre un livre",
-      description: "Des histoires originales pour chaque langue. Grandes pages, mouvement doux et bouton écouter."
+      description: "Choisissez un album animé à lire ou une collection audio grandissante. Chaque langue a ses propres histoires originales."
     },
     parents: {
       metaTitle: "Parents & confidentialité | Vaphia",
@@ -268,7 +268,7 @@ export const defaultContent: SiteContent = {
       metaDescription: "Cuentos originales de Vaphia para leer y escuchar, sin cuenta infantil.",
       eyebrow: "Cuentos",
       title: "Abre un libro",
-      description: "Historias originales en cada idioma. Páginas grandes, movimiento suave y botón de escuchar."
+      description: "Elige libros ilustrados animados para leer o una colección de audiocuentos que crece. Cada idioma tiene historias originales."
     },
     parents: {
       metaTitle: "Padres y privacidad | Vaphia",

@@ -3,6 +3,7 @@ import { locales } from "@/lib/i18n";
 import { siteConfig } from "@/config/site";
 import { gameCatalog } from "@/lib/games/catalog";
 import { storyCatalog } from "@/lib/stories/catalog";
+import { audioBookCatalog } from "@/lib/stories/audio-catalog";
 import { coloringCatalog } from "@/lib/coloring/catalog";
 
 const routes = ["", "/watch", "/play", "/create", "/create/draw", "/create/ages/3-5", "/create/ages/5-7", "/create/ages/7-10", "/storyhouse", "/explore", "/about", "/parents", "/stickers"];
@@ -34,10 +35,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const stories = storyCatalog.map((book) => ({
-    url: `${siteConfig.defaultUrl}/${book.locale}/storyhouse/${book.id}`,
+    url: `${siteConfig.defaultUrl}/${book.locale}/storyhouse/read/${book.id}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7
+  }));
+
+  const audioBooks = audioBookCatalog.map((book) => ({
+    url: `${siteConfig.defaultUrl}/${book.locale}/storyhouse/audio/${book.id}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.65
   }));
 
   const coloring = locales.flatMap((locale) =>
@@ -49,5 +57,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...pages, ...games, ...stories, ...coloring];
+  return [...pages, ...games, ...stories, ...audioBooks, ...coloring];
 }

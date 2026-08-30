@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { storiesForLocale } from "@/lib/stories/catalog";
 import { StoryHub } from "@/components/storyhouse/StoryHub";
+import { AudioBookHub } from "@/components/storyhouse/AudioBookHub";
+import { audioBooksForLocale } from "@/lib/stories/audio-catalog";
 import { getPageContent } from "@/lib/content";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
@@ -19,10 +21,13 @@ export default async function StoryhousePage({ params }: { params: Promise<{ loc
   const locale = rawLocale as Locale;
   const content = await getPageContent(locale, "storyhouse");
   const books = storiesForLocale(locale);
+  const audioBooks = audioBooksForLocale(locale);
   return (
     <main>
       <PageHero eyebrow={content.eyebrow} title={content.title} description={content.description} />
       <StoryHub locale={locale} books={books} />
+      <div className="shell story-library-divider" aria-hidden="true" />
+      <div className="shell"><AudioBookHub locale={locale} books={audioBooks} /></div>
     </main>
   );
 }

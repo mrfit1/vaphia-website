@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { celebrateReward, type StickerId } from "@/lib/stickers";
@@ -8,22 +8,9 @@ import { Celebration } from "@/components/games/Celebration";
 import { storiesForLocale, type StoryBook, type StoryMotion, type StoryPage } from "@/lib/stories/catalog";
 import { readAgeBand } from "@/lib/age";
 import { playCopy } from "@/lib/play-copy";
+import { storyCopy } from "@/lib/stories/copy";
+import { playPageTurn } from "@/lib/sound";
 import type { Locale } from "@/lib/i18n";
-
-async function findHumanAudio(bookId: string, explicit?: string) {
-  if (explicit) return explicit;
-  if (typeof window === "undefined") return null;
-  for (const ext of [".mp3", ".m4a"] as const) {
-    const url = `/audio/${bookId}${ext}`;
-    try {
-      const res = await fetch(url, { method: "HEAD" });
-      if (res.ok) return url;
-    } catch {
-      /* no human recording */
-    }
-  }
-  return null;
-}
 
 function motionOf(page: StoryPage): StoryMotion {
   if (page.motion) return page.motion;
@@ -45,27 +32,15 @@ function StorySession({ book, locale }: { book: StoryBook; locale: Locale }) {
   }, [age, book.pages]);
   const hold = age === "3-5" ? 7000 : age === "7-10" ? 8000 : 6500;
   const [page, setPage] = useState(0);
-  const [listening, setListening] = useState(false);
-  const [audioSrc, setAudioSrc] = useState<string | null>(book.audio ?? null);
   const [sticker, setSticker] = useState<StickerId | null>(null);
   const [finished, setFinished] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const current = pages[Math.min(page, pages.length - 1)];
   const t = playCopy[locale];
+  const storyT = storyCopy[locale];
   const library = storiesForLocale(locale);
   const nextBook = library[(library.findIndex((item) => item.id === book.id) + 1) % library.length];
   const dismiss = useCallback(() => setSticker(null), []);
   const motion = motionOf(current);
-
-  useEffect(() => {
-    let alive = true;
-    void findHumanAudio(book.id, book.audio).then((src) => {
-      if (alive) setAudioSrc(src);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [book.id, book.audio]);
 
   const finishIfLast = useCallback((index: number) => {
     if (index < pages.length - 1) return;
@@ -84,70 +59,36 @@ function StorySession({ book, locale }: { book: StoryBook; locale: Locale }) {
   }, [pages.length, finishIfLast]);
 
   useEffect(() => {
-    if (listening || sticker || finished) return;
+    if (sticker || finished) return;
     const timer = window.setTimeout(() => {
       if (page < pages.length - 1) go(page + 1);
       else go(page);
     }, hold);
     return () => window.clearTimeout(timer);
-  }, [page, hold, listening, sticker, finished, pages.length, go]);
-
-  function pageFromAudio(el: HTMLAudioElement) {
-    if (!Number.isFinite(el.duration) || el.duration <= 0) return page;
-    return Math.min(pages.length - 1, Math.floor((el.currentTime / el.duration) * pages.length));
-  }
-
-  function seekAudio(index: number) {
-    const el = audioRef.current;
-    if (!el || !listening || !Number.isFinite(el.duration) || el.duration <= 0) return;
-    el.currentTime = Math.min(el.duration - 0.05, index * (el.duration / pages.length));
-  }
-
-  function listen() {
-    const el = audioRef.current;
-    if (!el || !audioSrc) return;
-    if (listening) {
-      el.pause();
-      setListening(false);
-      return;
-    }
-    seekAudio(page);
-    void el.play().then(() => setListening(true)).catch(() => setListening(false));
-  }
+  }, [page, hold, sticker, finished, pages.length, go]);
 
   function turn(next: number) {
     if (sticker) return;
     const clipped = Math.min(pages.length - 1, Math.max(0, next));
-    seekAudio(clipped);
     go(clipped);
+    if (clipped !== page) playPageTurn();
   }
 
   return (
     <article className="story-reader">
       {sticker ? <Celebration locale={locale} sticker={sticker} onDone={dismiss} /> : null}
-      {audioSrc ? (
-        <audio
-          ref={audioRef}
-          src={audioSrc}
-          preload="metadata"
-          hidden
-          onTimeUpdate={(event) => {
-            const idx = pageFromAudio(event.currentTarget);
-            setPage(idx);
-            finishIfLast(idx);
-          }}
-          onEnded={() => {
-            setListening(false);
-            go(pages.length - 1);
-          }}
-        />
-      ) : null}
+      <div className="story-reader-topbar">
+        <Link className="story-back-link pressable" href={`/${locale}/storyhouse`}>← {storyT.backToLibrary}</Link>
+        <span className="story-page-count">{storyT.pageOf.replace("{page}", String(page + 1)).replace("{total}", String(pages.length))}</span>
+      </div>
+      <div className="story-progress" aria-hidden="true"><span style={{ width: `${((page + 1) / pages.length) * 100}%` }} /></div>
       <button
         type="button"
         className="story-stage"
         onClick={() => turn(page + 1)}
+        aria-label={`${storyT.next}: ${storyT.pageOf.replace("{page}", String(Math.min(page + 2, pages.length))).replace("{total}", String(pages.length))}`}
       >
-        <span className={`story-art-layer story-art-${motion}`} aria-hidden="true">
+        <span key={page} className={`story-art-layer story-art-${motion}`} aria-hidden="true">
           <Image
             src={current.image}
             alt=""
@@ -158,17 +99,12 @@ function StorySession({ book, locale }: { book: StoryBook; locale: Locale }) {
           />
           {motion === "sparkle" ? <span className="story-sparkles" /> : null}
         </span>
-        <p className="story-caption">{current.text}</p>
+        <p className="story-caption" aria-live="polite">{current.text}</p>
         <span className="story-hint">{t.tapSkip}</span>
       </button>
       <div className="story-controls">
-        <button className="giant-pictorial-button pressable" type="button" disabled={page === 0} onClick={() => turn(page - 1)}>←</button>
-        {audioSrc ? (
-          <button className={`giant-pictorial-button pressable ${listening ? "glow" : ""}`} type="button" onClick={listen} aria-label={listening ? t.hush : t.listen}>
-            {listening ? "■" : "♪"}
-          </button>
-        ) : null}
-        <button className="giant-pictorial-button pressable" type="button" onClick={() => turn(page + 1)}>→</button>
+        <button className="giant-pictorial-button pressable" type="button" disabled={page === 0} onClick={() => turn(page - 1)} aria-label={storyT.previous}>←</button>
+        <button className="giant-pictorial-button pressable" type="button" onClick={() => turn(page + 1)} aria-label={storyT.next}>→</button>
       </div>
       {finished && !sticker ? (
         <div className="story-next-row">
@@ -176,15 +112,13 @@ function StorySession({ book, locale }: { book: StoryBook; locale: Locale }) {
             className="giant-next-button pressable"
             type="button"
             onClick={() => {
-              audioRef.current?.pause();
-              setListening(false);
               setPage(0);
               setFinished(false);
             }}
           >
             {t.playAgain}
           </button>
-          <Link className="giant-next-button pressable" href={`/${locale}/storyhouse/${nextBook.id}`}>
+          <Link className="giant-next-button pressable" href={`/${locale}/storyhouse/read/${nextBook.id}`}>
             {t.nextStory}
           </Link>
         </div>

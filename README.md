@@ -19,7 +19,8 @@ Production-oriented Next.js website for **Vania & Sophia / Vaphia**, prepared fo
 - 30 finger games with sound, cheers, levels and sticker rewards
 - Drawing studio with glitter, sparkle, neon, rainbow, eraser, stickers, PNG + giant PRINT
 - 60 unique printable coloring sheets (20 per age band), SVG/PNG/print
-- Original Storyhouse books per language (not translations)
+- Separate Storyhouse shelves: animated picture books to read and a dedicated audiobook library
+- Six original audiobook entries per language, with a rights-first recording status and gentle female narration brief
 - Optional kid membership via picture + PIN created by a parent; site works without login
 - Vaphia Stars stored locally on the device
 - Drawing pad, interactive coloring studio and printable coloring SVG
@@ -98,6 +99,10 @@ After the final domain is connected:
 ## Content architecture
 
 Static defaults live in `src/content.ts`. If Supabase is configured, admin overrides are merged over those defaults. That means the site remains deployable and readable even if the CMS is temporarily unavailable.
+
+### Storyhouse audio
+
+`src/lib/stories/audio-catalog.ts` contains the original audio-book records for English, Persian, French and Spanish. The public UI only treats an item as playable when its `audioSrc` is populated. Add only a Vaphia-owned or separately rights-cleared recording, preferably as an optimized MP3/M4A under `public/audio/` (or a controlled storage URL), then set `audioSrc` and `recording: "ready"`. Browser speech synthesis is intentionally not used as a substitute for a real narrator.
 
 ## Adding a new language
 

@@ -4,6 +4,7 @@ import { soundsAllowed } from "@/lib/prefs";
 import type { Locale } from "@/lib/i18n";
 
 let audioCtx: AudioContext | null = null;
+let winIndex = 0;
 
 function ctx() {
   if (typeof window === "undefined") return null;
@@ -40,16 +41,23 @@ export function playSparkle() {
   tone(1760, 0.1, 0.12, "triangle", 0.05);
 }
 
-export function playCheer() {
+export function playCheer(variant = winIndex++) {
   if (!soundsAllowed()) return;
   void ctx()?.resume();
-  [523, 659, 784, 1046].forEach((freq, index) => tone(freq, index * 0.09, 0.22, "triangle", 0.11));
-  tone(1568, 0.38, 0.28, "sine", 0.08);
+  const patterns = [
+    [523, 659, 784, 1046, 1568],
+    [392, 523, 659, 784, 1174],
+    [440, 554, 698, 880, 1320],
+    [587, 740, 880, 1174, 1480]
+  ];
+  const pattern = patterns[Math.abs(variant) % patterns.length];
+  pattern.forEach((freq, index) => tone(freq, index * 0.085, index === pattern.length - 1 ? 0.3 : 0.2, index % 2 ? "sine" : "triangle", 0.1));
 }
 
-export function playWin() {
-  playCheer();
-  playSparkle();
+export function playWin(variant = winIndex++) {
+  playCheer(variant);
+  if (variant % 2 === 0) playSparkle();
+  else playPageTone();
 }
 
 export function speakCheer(_locale: Locale) {
@@ -83,6 +91,13 @@ export function playPageTone() {
   void ctx()?.resume();
   tone(392, 0, 0.12, "sine", 0.05);
   tone(523, 0.08, 0.16, "sine", 0.05);
+}
+
+export function playPageTurn() {
+  if (!soundsAllowed()) return;
+  void ctx()?.resume();
+  tone(330, 0, 0.08, "sine", 0.04);
+  tone(494, 0.07, 0.12, "sine", 0.04);
 }
 
 export function playPop() {

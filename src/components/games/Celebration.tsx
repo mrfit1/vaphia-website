@@ -26,10 +26,10 @@ export function Celebration({
   const t = copy[locale];
 
   useEffect(() => {
-    playWin();
+    playWin(`${sticker}-${Date.now()}`.length);
     const timer = window.setTimeout(() => onDone(), 4200);
     return () => window.clearTimeout(timer);
-  }, [onDone]);
+  }, [onDone, sticker]);
 
   return (
     <div
