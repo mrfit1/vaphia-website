@@ -80,7 +80,7 @@ export function ColoringSheet({ page, locale }: { page: ColoringPage; locale: Lo
 
   return (
     <section className="creative-card coloring-sheet">
-      {sticker && <Celebration locale={locale} sticker={sticker} />}
+      {sticker ? <Celebration locale={locale} sticker={sticker} onDone={() => setSticker(null)} /> : null}
       <h1>{page.titles[locale]}</h1>
       <div className="palette big-palette">
         {palette.map((item) => (

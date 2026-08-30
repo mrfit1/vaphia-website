@@ -117,9 +117,14 @@ export function DrawingStudio({ locale }: { locale: Locale }) {
     if (!context) return;
     snapshot();
     const p = point(event);
-    const item = stickerCatalog[Math.floor(Math.random() * 8)];
-    context.font = `${size * 2.2}px sans-serif`;
-    context.fillText(item.mark, p.x - 16, p.y + 12);
+    const stamps = ["★", "♥", "✿", "✦", "●", "▲"];
+    context.fillStyle = stickerCatalog[Math.floor(Math.random() * stickerCatalog.length)].tint;
+    context.beginPath();
+    context.arc(p.x, p.y, size * 1.1, 0, Math.PI * 2);
+    context.fill();
+    context.fillStyle = "#39265f";
+    context.font = `${size * 1.6}px sans-serif`;
+    context.fillText(stamps[Math.floor(Math.random() * stamps.length)], p.x - size * 0.55, p.y + size * 0.45);
     playSparkle();
   }
 
@@ -152,7 +157,7 @@ export function DrawingStudio({ locale }: { locale: Locale }) {
 
   return (
     <section className="creative-card drawing-studio">
-      {sticker && <Celebration locale={locale} sticker={sticker} />}
+      {sticker ? <Celebration locale={locale} sticker={sticker} onDone={() => setSticker(null)} /> : null}
       <div className="pictorial-toolbar" aria-label="Tools">
         {tools.map((item) => (
           <button key={item.id} className={`pictorial-tool ${tool === item.id ? "selected" : ""}`} onClick={() => setTool(item.id)} aria-label={item.id}>

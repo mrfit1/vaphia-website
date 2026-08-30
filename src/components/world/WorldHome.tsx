@@ -7,6 +7,7 @@ import Link from "next/link";
 import { readAgeBand, writeAgeBand, type AgeBand } from "@/lib/age";
 import { readStickerBook, stickerCatalog } from "@/lib/stickers";
 import { GrownUpSocialLink } from "@/components/SocialIcons";
+import { Mark, type MarkId } from "@/components/marks/VaphiaMarks";
 import type { Locale } from "@/lib/i18n";
 
 const copy: Record<Locale, {
@@ -23,8 +24,7 @@ const copy: Record<Locale, {
   es: { pick: "¿Cuántos años tienes?", ages: { "3-5": "3–5", "5-7": "5–7", "7-10": "7–10" }, lands: { watch: "Ver", play: "Jugar", create: "Crear", story: "Casa de cuentos" }, surprise: "Hoy", stickers: "Libro de stickers", changeAge: "Cambiar edad" }
 };
 
-const ageMarks: Record<AgeBand, string> = { "3-5": "🧸", "5-7": "🎈", "7-10": "⭐" };
-const surprises = ["⭐", "💖", "🧁", "🌸", "🎈", "🌙", "🎨"];
+const ageMarks: Record<AgeBand, MarkId> = { "3-5": "age-tiny", "5-7": "age-mid", "7-10": "age-big" };
 
 export function WorldHome({
   locale,
@@ -56,24 +56,23 @@ export function WorldHome({
     };
   }, []);
 
-  const surprise = surprises[new Date().getDate() % surprises.length];
-
   if (!age) {
     return (
-      <main className="world-home">
+      <main className="world-home world-age-pick">
         <section className="age-door shell">
           <h1>{t.pick}</h1>
           <div className="age-door-grid">
             {(["3-5", "5-7", "7-10"] as AgeBand[]).map((band) => (
               <button
                 key={band}
-                className="age-door-card"
+                className="age-door-card pressable"
+                type="button"
                 onClick={() => {
                   writeAgeBand(band);
                   setAge(band);
                 }}
               >
-                <span className="age-mark">{ageMarks[band]}</span>
+                <span className="age-mark"><Mark id={ageMarks[band]} /></span>
                 <strong>{t.ages[band]}</strong>
               </button>
             ))}
@@ -83,15 +82,16 @@ export function WorldHome({
     );
   }
 
-  const lands = [
-    { href: `/${locale}/watch`, mark: "▶", label: t.lands.watch, className: "land-watch" },
-    { href: `/${locale}/play`, mark: "🎮", label: t.lands.play, className: "land-play" },
-    { href: `/${locale}/create`, mark: "🖍️", label: t.lands.create, className: "land-create" },
-    { href: `/${locale}/storyhouse`, mark: "📖", label: t.lands.story, className: "land-story" }
+  const allLands = [
+    { href: `/${locale}/watch`, icon: "watch" as const, label: t.lands.watch, className: "land-watch" },
+    { href: `/${locale}/play`, icon: "play" as const, label: t.lands.play, className: "land-play" },
+    { href: `/${locale}/create`, icon: "create" as const, label: t.lands.create, className: "land-create" },
+    { href: `/${locale}/storyhouse`, icon: "story" as const, label: t.lands.story, className: "land-story" }
   ];
+  const lands = age === "3-5" ? [allLands[1], allLands[3], allLands[0]] : allLands;
 
   return (
-    <main className="world-home">
+    <main className={`world-home world-age-${age}`}>
       <section className="world-hero shell">
         <div className="hero-picture-wrap">
           <div className="hero-picture">
@@ -100,36 +100,46 @@ export function WorldHome({
           <span className="sister-tag left">Sophia</span>
           <span className="sister-tag right">Vania</span>
         </div>
-        <button className="age-chip" onClick={() => setAge(null)} type="button">
-          {ageMarks[age]} {t.ages[age]} · {t.changeAge}
+        <button className="age-chip pressable" onClick={() => setAge(null)} type="button">
+          <Mark id={ageMarks[age]} /> {t.ages[age]} · {t.changeAge}
         </button>
       </section>
 
-      <section className="world-lands shell" aria-label="Vaphia lands">
+      <section className={`world-lands shell lands-${age}`} aria-label="Vaphia lands">
         {lands.map((land) => (
-          <Link key={land.href} href={land.href} className={`world-land ${land.className}`}>
-            <span className="land-mark">{land.mark}</span>
+          <Link key={land.href} href={land.href} className={`world-land pressable ${land.className}`}>
+            <span className="land-mark"><Mark id={land.icon} /></span>
             <strong>{land.label}</strong>
           </Link>
         ))}
       </section>
 
-      <section className="world-extras shell">
-        <Link href={`/${locale}/play`} className="daily-surprise">
-          <span className="surprise-box">🎁</span>
-          <span>{t.surprise}</span>
-          <span className="surprise-mark">{surprise}</span>
-        </Link>
-        <Link href={`/${locale}/stickers`} className="sticker-book-card">
-          <span className="book-mark">📘</span>
-          <strong>{t.stickers}</strong>
-          <div className="sticker-preview">
-            {stickerCatalog.slice(0, 8).map((item) => (
-              <span key={item.id} className={owned.includes(item.id) ? "owned" : "locked"}>{owned.includes(item.id) ? item.mark : "○"}</span>
-            ))}
-          </div>
-        </Link>
-      </section>
+      {age !== "3-5" ? (
+        <section className="world-extras shell">
+          <Link href={`/${locale}/play`} className="daily-surprise pressable">
+            <span className="surprise-box"><Mark id="gift" /></span>
+            <span>{t.surprise}</span>
+          </Link>
+          <Link href={`/${locale}/stickers`} className="sticker-book-card pressable">
+            <span className="book-mark"><Mark id="book" /></span>
+            <strong>{t.stickers}</strong>
+            <div className="sticker-preview">
+              {stickerCatalog.slice(0, age === "7-10" ? 12 : 8).map((item) => (
+                <span key={item.id} className={owned.includes(item.id) ? "owned" : "locked"}>
+                  {owned.includes(item.id) ? <Mark id={item.icon} /> : "○"}
+                </span>
+              ))}
+            </div>
+          </Link>
+        </section>
+      ) : (
+        <section className="world-extras shell tiny-extra">
+          <Link href={`/${locale}/stickers`} className="sticker-book-card pressable">
+            <span className="book-mark"><Mark id="book" /></span>
+            <strong>{t.stickers}</strong>
+          </Link>
+        </section>
+      )}
 
       <div className="hero-socials world-socials shell">
         <GrownUpSocialLink name="youtube" href={youtubeUrl} locale={locale} />

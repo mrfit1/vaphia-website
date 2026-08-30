@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { afterPaint } from "@/lib/client-state";
 import { readStickerBook, stickerCatalog } from "@/lib/stickers";
+import { Mark } from "@/components/marks/VaphiaMarks";
 import type { Locale } from "@/lib/i18n";
 
 const titles: Record<Locale, string> = {
@@ -27,7 +28,7 @@ export function StickerBookPage({ locale }: { locale: Locale }) {
       <div className="sticker-grid">
         {stickerCatalog.map((item) => (
           <div key={item.id} className={`sticker-slot ${owned.includes(item.id) ? "owned" : "locked"}`} style={{ background: owned.includes(item.id) ? item.tint : "#f4eef8" }}>
-            <span>{owned.includes(item.id) ? item.mark : "○"}</span>
+            {owned.includes(item.id) ? <Mark id={item.icon} /> : <span>○</span>}
           </div>
         ))}
       </div>

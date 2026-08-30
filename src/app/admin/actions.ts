@@ -5,48 +5,59 @@ import { redirect } from "next/navigation";
 import { defaultContent } from "@/content";
 import { defaultGlobalSettings } from "@/config/site";
 import { locales, type Locale } from "@/lib/i18n";
-import type { PageKey } from "@/lib/content-types";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import type { PageContent, PageKey } from "@/lib/content-types";
+import { createSupabaseServerClient, hasSupabaseConfig } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/admin";
+import { clearOwnerSession, ownerPassword, setOwnerSession } from "@/lib/owner/auth";
+import { writeOwnerPage, writeOwnerSettings } from "@/lib/owner/store";
 
 const pageKeys: PageKey[] = ["home", "watch", "play", "create", "explore", "storyhouse", "parents", "about"];
 
 export async function loginAction(formData: FormData) {
   const email = String(formData.get("email") || "").trim();
   const password = String(formData.get("password") || "");
-  const supabase = await createSupabaseServerClient();
-  if (!supabase) redirect("/admin/login?error=not-configured");
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) redirect("/admin/login?error=invalid-login");
+  if (hasSupabaseConfig()) {
+    const supabase = await createSupabaseServerClient();
+    if (!supabase) redirect("/admin/login?error=not-configured");
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) redirect("/admin/login?error=invalid-login");
+    redirect("/admin");
+  }
+
+  if (password !== ownerPassword()) redirect("/admin/login?error=invalid-login");
+  await setOwnerSession();
   redirect("/admin");
 }
 
 export async function logoutAction() {
   const supabase = await createSupabaseServerClient();
   if (supabase) await supabase.auth.signOut();
+  await clearOwnerSession();
   redirect("/admin/login");
 }
 
 export async function savePageContentAction(formData: FormData) {
   const { supabase } = await requireAdmin();
-  if (!supabase) redirect("/admin?error=not-configured");
-
   const locale = String(formData.get("locale") || "") as Locale;
   const pageKey = String(formData.get("pageKey") || "") as PageKey;
   if (!locales.includes(locale) || !pageKeys.includes(pageKey)) redirect("/admin?error=invalid-content");
 
   const fallback = defaultContent[locale][pageKey];
-  const content: Record<string, string> = {};
+  const content: PageContent = {};
   for (const key of Object.keys(fallback)) {
     content[key] = String(formData.get(`field:${key}`) || "").trim();
   }
 
-  const { error } = await supabase.from("site_content").upsert(
-    { locale, page_key: pageKey, content, updated_at: new Date().toISOString() },
-    { onConflict: "locale,page_key" }
-  );
-  if (error) redirect(`/admin?locale=${locale}&page=${pageKey}&error=save-failed`);
+  if (supabase) {
+    const { error } = await supabase.from("site_content").upsert(
+      { locale, page_key: pageKey, content, updated_at: new Date().toISOString() },
+      { onConflict: "locale,page_key" }
+    );
+    if (error) redirect(`/admin?locale=${locale}&page=${pageKey}&error=save-failed`);
+  } else {
+    await writeOwnerPage(locale, pageKey, content);
+  }
 
   revalidatePath(`/${locale}`, "layout");
   redirect(`/admin?locale=${locale}&page=${pageKey}&saved=content`);
@@ -54,8 +65,6 @@ export async function savePageContentAction(formData: FormData) {
 
 export async function saveGlobalSettingsAction(formData: FormData) {
   const { supabase } = await requireAdmin();
-  if (!supabase) redirect("/admin?error=not-configured");
-
   const current = { ...defaultGlobalSettings };
   const youtubeUrl = String(formData.get("youtubeUrl") || current.youtubeUrl);
   const tiktokUrl = String(formData.get("tiktokUrl") || current.tiktokUrl);
@@ -75,20 +84,46 @@ export async function saveGlobalSettingsAction(formData: FormData) {
     instagramEmbed: String(formData.get("instagramEmbed") || "").trim(),
     googleVerification: String(formData.get("googleVerification") || "").trim(),
     bingVerification: String(formData.get("bingVerification") || "").trim(),
-    gamesEnabled: Array.from(formData.keys()).filter((key) => key.startsWith("game:") && formData.get(key) === "on").map((key) => key.slice(5))
+    gamesEnabled: Array.from(formData.keys()).filter((key) => key.startsWith("game:") && formData.get(key) === "on").map((key) => key.slice(5)),
+    heroImage: String(formData.get("heroImage") || current.heroImage).trim() || current.heroImage,
+    bannerImage: String(formData.get("bannerImage") || current.bannerImage).trim() || current.bannerImage,
+    heroImageNote: String(formData.get("heroImageNote") || "").trim(),
+    bannerImageNote: String(formData.get("bannerImageNote") || "").trim()
   };
 
-  const { data: existing } = await supabase.from("site_settings").select("settings").eq("id", "global").maybeSingle();
-  const merged = { ...current, ...(existing?.settings || {}), ...settings };
-  const { error } = await supabase.from("site_settings").upsert({ id: "global", settings: merged, updated_at: new Date().toISOString() });
-  if (error) redirect("/admin?error=save-failed");
+  if (supabase) {
+    const { data: existing } = await supabase.from("site_settings").select("settings").eq("id", "global").maybeSingle();
+    const merged = { ...current, ...(existing?.settings || {}), ...settings };
+    const { error } = await supabase.from("site_settings").upsert({ id: "global", settings: merged, updated_at: new Date().toISOString() });
+    if (error) redirect("/admin?error=save-failed");
+  } else {
+    await writeOwnerSettings(settings);
+  }
+
   revalidatePath("/", "layout");
   redirect("/admin?saved=settings");
 }
 
 export async function uploadMediaAction(formData: FormData) {
   const { supabase } = await requireAdmin();
-  if (!supabase) redirect("/admin?error=not-configured");
+  if (!supabase) {
+    const kind = String(formData.get("kind") || "");
+    const note = String(formData.get("note") || "").trim();
+    const url = String(formData.get("url") || "").trim();
+    const current = { ...defaultGlobalSettings };
+    const patch: Record<string, string> = {};
+    if (kind === "heroImage") {
+      if (url) patch.heroImage = url;
+      patch.heroImageNote = note;
+    }
+    if (kind === "bannerImage") {
+      if (url) patch.bannerImage = url;
+      patch.bannerImageNote = note;
+    }
+    await writeOwnerSettings({ ...current, ...patch });
+    revalidatePath("/", "layout");
+    redirect("/admin?saved=media");
+  }
 
   const kind = String(formData.get("kind") || "");
   if (!["heroImage", "bannerImage"].includes(kind)) redirect("/admin?error=invalid-upload");

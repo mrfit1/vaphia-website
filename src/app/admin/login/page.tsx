@@ -16,16 +16,13 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
         <span className="admin-lock"><LockKeyhole /></span>
         <h1>Vaphia Admin</h1>
         <p>Private content-management area for the site owner.</p>
-        {!configured ? (
-          <div className="admin-alert">Supabase is not configured yet. Add the Supabase environment variables in Vercel after running <code>supabase/schema.sql</code>.</div>
-        ) : (
-          <form action={loginAction} className="admin-form">
-            <label>Email<input type="email" name="email" required autoComplete="username" /></label>
-            <label>Password<input type="password" name="password" required autoComplete="current-password" /></label>
-            {error && <div className="admin-error">Login failed or this account is not authorized.</div>}
-            <button className="button primary" type="submit">Sign in</button>
-          </form>
-        )}
+        <form action={loginAction} className="admin-form">
+          {configured ? <label>Email<input type="email" name="email" required autoComplete="username" /></label> : null}
+          <label>{configured ? "Password" : "Owner password"}<input type="password" name="password" required autoComplete="current-password" /></label>
+          {error && <div className="admin-error">Login failed. Check the owner password{configured ? " or admin account" : ""}.</div>}
+          {!configured ? <p className="admin-alert">No Supabase. Use the ADMIN_PASSWORD from the server environment (dev default is documented in .env.example).</p> : null}
+          <button className="button primary" type="submit">Sign in</button>
+        </form>
         <Link href="/en">← Back to Vaphia</Link>
       </section>
     </main>

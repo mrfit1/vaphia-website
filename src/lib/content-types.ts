@@ -19,4 +19,6 @@ export type GlobalSettings = {
   googleVerification: string;
   bingVerification: string;
   gamesEnabled: string[];
+  heroImageNote?: string;
+  bannerImageNote?: string;
 };

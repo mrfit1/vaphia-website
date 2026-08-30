@@ -43,6 +43,7 @@ export default async function ParentsPage({ params }: { params: Promise<{ locale
       <section className="shell legal-note">
         <h2>{t.privacyNotice as string}</h2>
         <p>{t.privacyNoticeText as string}</p>
+        <p className="admin-quiet"><a href="/admin">Owner admin</a></p>
       </section>
     </main>
   );

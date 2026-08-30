@@ -1,4 +1,5 @@
 import { addVaphiaStars, readStars } from "@/lib/stars";
+import type { MarkId } from "@/lib/mark-ids";
 
 export type StickerId =
   | "star"
@@ -24,31 +25,31 @@ export type StickerId =
 
 export type StickerDef = {
   id: StickerId;
-  mark: string;
+  icon: MarkId;
   tint: string;
 };
 
 export const stickerCatalog: StickerDef[] = [
-  { id: "star", mark: "⭐", tint: "#ffe37b" },
-  { id: "heart", mark: "💖", tint: "#ffb2d6" },
-  { id: "cupcake", mark: "🧁", tint: "#ffd4e8" },
-  { id: "flower", mark: "🌸", tint: "#ffc3de" },
-  { id: "balloon", mark: "🎈", tint: "#ff9ab8" },
-  { id: "moon", mark: "🌙", tint: "#e4ddff" },
-  { id: "sun", mark: "☀️", tint: "#ffe37b" },
-  { id: "bunny", mark: "🐰", tint: "#fff0d6" },
-  { id: "sparkle", mark: "✨", tint: "#dffaff" },
-  { id: "paint", mark: "🎨", tint: "#c2b4ff" },
-  { id: "book", mark: "📖", tint: "#b8edcf" },
-  { id: "camera", mark: "📷", tint: "#cbbcff" },
-  { id: "gift", mark: "🎁", tint: "#ffcdb8" },
-  { id: "cloud", mark: "☁️", tint: "#dff8ff" },
-  { id: "apple", mark: "🍎", tint: "#ffb2b2" },
-  { id: "crown", mark: "👑", tint: "#fff2ba" },
-  { id: "music", mark: "🎵", tint: "#d7f7ea" },
-  { id: "house", mark: "🏠", tint: "#ffe6f2" },
-  { id: "butterfly", mark: "🦋", tint: "#c2e4ff" },
-  { id: "smile", mark: "😊", tint: "#fff3bb" }
+  { id: "star", icon: "star", tint: "#ffe37b" },
+  { id: "heart", icon: "heart", tint: "#ffb2d6" },
+  { id: "cupcake", icon: "cupcake", tint: "#ffd4e8" },
+  { id: "flower", icon: "flower", tint: "#ffc3de" },
+  { id: "balloon", icon: "balloon", tint: "#ff9ab8" },
+  { id: "moon", icon: "moon", tint: "#e4ddff" },
+  { id: "sun", icon: "sun", tint: "#ffe37b" },
+  { id: "bunny", icon: "bunny", tint: "#fff0d6" },
+  { id: "sparkle", icon: "sparkle", tint: "#dffaff" },
+  { id: "paint", icon: "paint", tint: "#c2b4ff" },
+  { id: "book", icon: "book", tint: "#b8edcf" },
+  { id: "camera", icon: "camera", tint: "#cbbcff" },
+  { id: "gift", icon: "gift", tint: "#ffcdb8" },
+  { id: "cloud", icon: "cloud", tint: "#dff8ff" },
+  { id: "apple", icon: "apple", tint: "#ffb2b2" },
+  { id: "crown", icon: "crown", tint: "#fff2ba" },
+  { id: "music", icon: "music", tint: "#d7f7ea" },
+  { id: "house", icon: "house", tint: "#ffe6f2" },
+  { id: "butterfly", icon: "butterfly", tint: "#c2e4ff" },
+  { id: "smile", icon: "smile", tint: "#fff3bb" }
 ];
 
 const BOOK_KEY = "vaphia-sticker-book";

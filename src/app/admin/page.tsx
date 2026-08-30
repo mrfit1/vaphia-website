@@ -8,7 +8,6 @@ import { pageLabelMap } from "@/lib/page-labels";
 import { locales, localeNames, type Locale } from "@/lib/i18n";
 import type { PageKey } from "@/lib/content-types";
 import { gameCatalog } from "@/lib/games/catalog";
-import { hasSupabaseConfig } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/admin";
 import { logoutAction, saveGlobalSettingsAction, savePageContentAction, uploadMediaAction } from "./actions";
 
@@ -17,24 +16,7 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
-  if (!hasSupabaseConfig()) {
-    return (
-      <main className="admin-shell"><section className="admin-dashboard setup-dashboard">
-        <h1>Vaphia Admin Setup</h1>
-        <p>The admin UI is built. Connect Supabase to make edits persistent on Vercel.</p>
-        <ol>
-          <li>Create a Supabase project.</li>
-          <li>Run <code>supabase/schema.sql</code> in the SQL editor.</li>
-          <li>Create your admin user in Supabase Authentication.</li>
-          <li>Add that user ID to the <code>admins</code> table.</li>
-          <li>Add <code>NEXT_PUBLIC_SUPABASE_URL</code> and <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> in Vercel.</li>
-        </ol>
-        <Link className="button primary" href="/en">Back to site</Link>
-      </section></main>
-    );
-  }
-
-  const { user } = await requireAdmin();
+  const { user, mode } = await requireAdmin();
   const locale = (typeof params.locale === "string" && locales.includes(params.locale as Locale) ? params.locale : "en") as Locale;
   const pageKeys = Object.keys(defaultContent.en) as PageKey[];
   const pageKey = (typeof params.page === "string" && pageKeys.includes(params.page as PageKey) ? params.page : "home") as PageKey;
@@ -46,7 +28,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     <main className="admin-shell wide-admin">
       <section className="admin-dashboard">
         <header className="admin-topbar">
-          <div><span className="eyebrow">Private CMS</span><h1>Vaphia Admin</h1><p>{user?.email}</p></div>
+          <div><span className="eyebrow">Private CMS</span><h1>Vaphia Admin</h1><p>{user?.email}{mode === "password" ? " · local owner" : ""}</p></div>
           <div className="admin-top-actions"><Link href={`/${locale}`} target="_blank"><ExternalLink size={18} /> View site</Link><form action={logoutAction}><button type="submit"><LogOut size={18} /> Sign out</button></form></div>
         </header>
         {saved && <div className="admin-success">Saved successfully.</div>}
@@ -98,8 +80,8 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             <section className="admin-panel">
               <div className="admin-panel-heading"><div><span className="eyebrow">Media</span><h2>Images</h2></div><ImageUp /></div>
               <div className="media-admin-grid">
-                <MediaEditor kind="heroImage" label="Hero image" src={settings.heroImage} />
-                <MediaEditor kind="bannerImage" label="Vaphia banner" src={settings.bannerImage} />
+                <MediaEditor kind="heroImage" label="Hero image" src={settings.heroImage} note={settings.heroImageNote} />
+                <MediaEditor kind="bannerImage" label="Vaphia banner" src={settings.bannerImage} note={settings.bannerImageNote} />
               </div>
             </section>
           </div>
@@ -109,14 +91,16 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
   );
 }
 
-function MediaEditor({ kind, label, src }: { kind: "heroImage" | "bannerImage"; label: string; src: string }) {
+function MediaEditor({ kind, label, src, note }: { kind: "heroImage" | "bannerImage"; label: string; src: string; note?: string }) {
   return (
     <div className="media-editor">
       <div className="media-preview"><Image src={src} alt={label} fill sizes="400px" className="cover-image" /></div>
       <form action={uploadMediaAction} className="admin-form compact-form">
         <input type="hidden" name="kind" value={kind} />
-        <label>{label}<input type="file" name="file" accept="image/jpeg,image/png,image/webp,image/avif" required /></label>
-        <button className="button secondary-button" type="submit"><ImageUp size={18} /> Upload</button>
+        <label>{label} file (Supabase)<input type="file" name="file" accept="image/jpeg,image/png,image/webp,image/avif" /></label>
+        <label>Image URL<input name="url" defaultValue={src} /></label>
+        <label>Owner note<textarea name="note" defaultValue={note || ""} rows={3} placeholder="Where the next photo should live, crop, mood..." /></label>
+        <button className="button secondary-button" type="submit"><ImageUp size={18} /> Save image / note</button>
       </form>
     </div>
   );

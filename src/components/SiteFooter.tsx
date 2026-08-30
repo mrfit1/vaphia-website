@@ -21,6 +21,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-links">
           <Link href={`/${locale}/parents`}>{t.parentsPrivacy as string}</Link>
+          <Link href="/admin" className="admin-quiet-link">Admin</Link>
         </div>
       </div>
     </footer>
