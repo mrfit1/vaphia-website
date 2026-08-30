@@ -1,5 +1,14 @@
 import type { NextConfig } from "next";
 
+const locales = ["en", "fa", "fr", "es"] as const;
+const retiredGameIds = [
+  "star-pairs", "heart-pairs", "cupcake-pairs", "catch-stars", "catch-hearts", "bubble-pop",
+  "hero-puzzle", "garden-puzzle", "park-puzzle", "clap-along", "color-echo", "drum-beat",
+  "size-sort", "fruit-basket", "count-stars", "number-train", "find-sophia", "find-vania",
+  "sticker-hunt", "shape-twins", "shadow-match", "color-twins", "rainbow-path", "garden-path",
+  "odd-star", "odd-flower", "pattern-beads", "pattern-blocks"
+];
+
 const supabaseHost = (() => {
   try {
     return process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -33,6 +42,16 @@ const nextConfig: NextConfig = {
     remotePatterns: supabaseHost
       ? [{ protocol: "https", hostname: supabaseHost }]
       : []
+  },
+
+  async redirects() {
+    return locales.flatMap((locale) =>
+      retiredGameIds.map((id) => ({
+        source: `/${locale}/play/${id}`,
+        destination: `/${locale}/play`,
+        permanent: false
+      }))
+    );
   },
   async headers() {
     return [

@@ -11,15 +11,14 @@ import type { Locale } from "@/lib/i18n";
 export function GameHub({ locale, enabled }: { locale: Locale; enabled: string[] }) {
   const [age, setAge] = useState<AgeBand | null>(null);
   useEffect(() => afterPaint(() => setAge(readAgeBand())), []);
-  const allow = enabled.length && !enabled.every((id) => ["memory", "tap", "puzzle"].includes(id))
-    ? enabled
-    : gameCatalog.map((game) => game.id);
-  const games = gamesForAge(age).filter((game) => allow.includes(game.id));
+  const live = gameCatalog.map((game) => game.id);
+  const allow = enabled.filter((id) => live.includes(id));
+  const shown = gamesForAge(age).filter((game) => (allow.length ? allow : live).includes(game.id));
 
   return (
     <div className={`game-hub hub-${age || "all"}`}>
       <div className="game-hub-grid">
-        {games.map((game) => (
+        {shown.map((game) => (
           <Link key={game.id} href={`/${locale}/play/${game.id}`} className="game-hub-card pressable" style={{ background: game.tint }}>
             <span className="land-mark"><Mark id={game.icon} /></span>
             <strong>{game.titles[locale]}</strong>

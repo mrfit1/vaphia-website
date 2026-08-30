@@ -594,3 +594,91 @@ html[data-vaphia-motion="off"] *::after {
 .nav-mark { width: 22px; height: 22px; display: inline-block; }
 .brand-mark .v-mark { width: 28px; height: 28px; }
 .pictorial-nav a { display: inline-flex; align-items: center; gap: 6px; }
+
+
+/* painted game boards + token faces */
+.paint-frame { position: absolute; inset: 0; display: block; pointer-events: none; }
+.paint-frame img { object-fit: cover; }
+.painted-board { position: relative; overflow: hidden; }
+.board-paint { z-index: 0; }
+.tap-arena.painted-board { min-height: min(62vh, 620px); }
+.token-face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  background-color: #fff8f2;
+}
+.token-silhouette { filter: brightness(0) saturate(0); opacity: .78; }
+.token-choice { width: 104px; height: 104px; min-width: 104px; min-height: 104px; padding: 6px; }
+.card-back {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 30% 30%, #fff7, transparent 40%),
+    linear-gradient(145deg, #8a6bff, #35d8eb);
+}
+.memory-8 { grid-template-columns: repeat(4, 1fr); max-width: 560px; }
+.memory-12 { grid-template-columns: repeat(4, 1fr); max-width: 640px; }
+.memory-16 { grid-template-columns: repeat(4, 1fr); max-width: 720px; }
+.memory-card .token-face { width: 100%; height: 100%; }
+.balloon-target { background: transparent; box-shadow: none; width: 118px; height: 118px; }
+.balloon-target.popped { pointer-events: none; animation: burst-pop .28s ease-out forwards; }
+.catch-target { width: 118px; height: 118px; background: transparent; box-shadow: none; }
+@keyframes burst-pop { to { scale: 1.5; opacity: 0; } }
+@keyframes wiggle-x {
+  20% { translate: -8px 0; }
+  40% { translate: 8px 0; }
+  60% { translate: -6px 0; }
+  80% { translate: 6px 0; }
+}
+.wiggle { animation: wiggle-x .38s ease; }
+.color-bin {
+  width: 110px;
+  height: 110px;
+  min-width: 110px;
+  min-height: 110px;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: inset 0 -14px 0 rgba(57,38,95,.12), 0 10px 0 rgba(70,48,109,.12);
+  cursor: pointer;
+}
+.number-mark { font-size: clamp(2rem, 6vw, 3rem); width: 88px; height: 88px; }
+.count-goal { gap: 10px; }
+.count-goal .token-face { width: 72px; height: 72px; }
+.hidden-scene {
+  position: relative;
+  width: min(920px, 100%);
+  aspect-ratio: 16 / 11;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-pop);
+}
+.hidden-item {
+  position: absolute;
+  translate: -50% -50%;
+  width: 96px;
+  height: 96px;
+  min-width: 96px;
+  min-height: 96px;
+  padding: 4px;
+  border: 0;
+  border-radius: 28px;
+  background: rgba(255,255,255,.55);
+  cursor: pointer;
+  z-index: 2;
+}
+.hidden-item.found { opacity: .28; pointer-events: none; }
+.hidden-hint { align-items: center; gap: 16px; }
+.hidden-hint .token-face { width: 96px; height: 96px; }
+.odd-grid .size-lg { width: 128px; height: 128px; }
+.odd-grid .size-sm { width: 72px; height: 72px; }
+.hole { background: #2a2150; }
+.hole.filled { background: #fff7d6; }
+.simon-grid .choice-mark { width: 120px; height: 120px; }
+@media (max-width: 759px) {
+  .memory-8, .memory-12, .memory-16 { grid-template-columns: repeat(4, 1fr); }
+  .hidden-item, .balloon-target, .catch-target, .token-choice { width: 88px; height: 88px; min-width: 88px; min-height: 88px; }
+}

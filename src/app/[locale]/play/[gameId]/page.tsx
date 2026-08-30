@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { gameById, gameCatalog } from "@/lib/games/catalog";
+import { notFound, redirect } from "next/navigation";
+import { gameById, gameCatalog, isRetiredGame, retiredGameIds } from "@/lib/games/catalog";
 import { GamePlayer } from "@/components/games/GamePlayer";
-import { getGlobalSettings } from "@/lib/content";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/config/site";
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) => gameCatalog.map((game) => ({ locale, gameId: game.id })));
+  const ids = [...gameCatalog.map((game) => game.id), ...retiredGameIds];
+  return locales.flatMap((locale) => ids.map((gameId) => ({ locale, gameId })));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; gameId: string }> }): Promise<Metadata> {
@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function GamePage({ params }: { params: Promise<{ locale: string; gameId: string }> }) {
   const { locale: rawLocale, gameId } = await params;
   if (!isLocale(rawLocale)) notFound();
+  if (isRetiredGame(gameId)) redirect(`/${rawLocale}/play`);
   const game = gameById(gameId);
-  if (!game) notFound();
-  const settings = await getGlobalSettings();
+  if (!game) redirect(`/${rawLocale}/play`);
   return (
     <main className="shell game-page">
-      <GamePlayer game={game} locale={rawLocale} imageUrl={settings.heroImage} />
+      <GamePlayer game={game} locale={rawLocale} />
     </main>
   );
 }

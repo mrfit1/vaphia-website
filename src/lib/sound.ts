@@ -52,23 +52,8 @@ export function playWin() {
   playSparkle();
 }
 
-const cheers: Record<Locale, string[]> = {
-  en: ["Yay!", "Great job!", "You did it!", "Super star!", "Wow!"],
-  fa: ["آفرین!", "چه عالی!", "تو تونستی!", "ستاره شدی!"],
-  fr: ["Bravo !", "Super !", "Tu as réussi !", "Quelle étoile !"],
-  es: ["¡Bien!", "¡Muy bien!", "¡Lo lograste!", "¡Súper estrella!"]
-};
-
-export function speakCheer(locale: Locale) {
-  if (!soundsAllowed() || typeof window === "undefined" || !window.speechSynthesis) return;
-  const options = cheers[locale];
-  const text = options[Math.floor(Math.random() * options.length)];
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = locale === "fa" ? "fa-IR" : locale === "fr" ? "fr-FR" : locale === "es" ? "es-ES" : "en-US";
-  utter.pitch = 1.35;
-  utter.rate = 1.05;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utter);
+export function speakCheer(_locale: Locale) {
+  return;
 }
 
 export function speakText(text: string, locale: Locale) {
@@ -85,4 +70,24 @@ export function speakText(text: string, locale: Locale) {
 export function stopSpeech() {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
+}
+
+export function playNote(frequency: number) {
+  if (!soundsAllowed()) return;
+  void ctx()?.resume();
+  tone(frequency, 0, 0.28, "triangle", 0.1);
+}
+
+export function playPageTone() {
+  if (!soundsAllowed()) return;
+  void ctx()?.resume();
+  tone(392, 0, 0.12, "sine", 0.05);
+  tone(523, 0.08, 0.16, "sine", 0.05);
+}
+
+export function playPop() {
+  if (!soundsAllowed()) return;
+  void ctx()?.resume();
+  tone(240, 0, 0.06, "square", 0.06);
+  tone(720, 0.03, 0.08, "triangle", 0.05);
 }

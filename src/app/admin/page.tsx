@@ -71,7 +71,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 <label>Google verification token<input name="googleVerification" defaultValue={settings.googleVerification} /></label>
                 <label>Bing verification token<input name="bingVerification" defaultValue={settings.bingVerification} /></label>
                 <fieldset className="admin-checks"><legend>Enabled games</legend>
-                  {gameCatalog.map((game) => <label key={game.id}><input type="checkbox" name={`game:${game.id}`} defaultChecked={settings.gamesEnabled.includes(game.id)} /> {game.titles.en}</label>)}
+                  {gameCatalog.map((game) => <label key={game.id}><input type="checkbox" name={`game:${game.id}`} defaultChecked={settings.gamesEnabled.some((id) => gameCatalog.some((live) => live.id === id)) ? settings.gamesEnabled.includes(game.id) : true} /> {game.titles.en}</label>)}
                 </fieldset>
                 <button className="button primary" type="submit"><Save size={18} /> Save settings</button>
               </form>
